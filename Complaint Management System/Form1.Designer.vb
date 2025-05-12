@@ -26,6 +26,7 @@ Partial Class Form1
         btnLogin = New Button()
         loginPanel = New Panel()
         reviewPanel = New Panel()
+        Label8 = New Label()
         txtComplaint = New ComboBox()
         txtTarget = New ComboBox()
         btnSendComplaint = New Button()
@@ -42,11 +43,19 @@ Partial Class Form1
         Label2 = New Label()
         Label1 = New Label()
         userViewPanel = New Panel()
+        complainsPanel = New FlowLayoutPanel()
+        itemsPanel = New Panel()
+        lblDetails = New Label()
+        lblComplaintType = New Label()
+        lblComplaintReceiver = New Label()
         Label7 = New Label()
-        Label8 = New Label()
+        txtStudentID = New TextBox()
+        Label9 = New Label()
         loginPanel.SuspendLayout()
         reviewPanel.SuspendLayout()
         userViewPanel.SuspendLayout()
+        complainsPanel.SuspendLayout()
+        itemsPanel.SuspendLayout()
         SuspendLayout()
         ' 
         ' Button1
@@ -78,6 +87,8 @@ Partial Class Form1
         ' 
         ' reviewPanel
         ' 
+        reviewPanel.Controls.Add(txtStudentID)
+        reviewPanel.Controls.Add(Label9)
         reviewPanel.Controls.Add(Label8)
         reviewPanel.Controls.Add(txtComplaint)
         reviewPanel.Controls.Add(txtTarget)
@@ -94,10 +105,20 @@ Partial Class Form1
         reviewPanel.Controls.Add(txtYearLvl)
         reviewPanel.Controls.Add(Label2)
         reviewPanel.Controls.Add(Label1)
-        reviewPanel.Location = New Point(-1, -3)
+        reviewPanel.Location = New Point(12, 50)
         reviewPanel.Name = "reviewPanel"
-        reviewPanel.Size = New Size(1527, 903)
+        reviewPanel.Size = New Size(1514, 850)
         reviewPanel.TabIndex = 3
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label8.Location = New Point(318, 538)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(298, 27)
+        Label8.TabIndex = 19
+        Label8.Text = "Sample showing of data"
         ' 
         ' txtComplaint
         ' 
@@ -152,7 +173,7 @@ Partial Class Form1
         RichTextBox2.Name = "RichTextBox2"
         RichTextBox2.ReadOnly = True
         RichTextBox2.RightToLeft = RightToLeft.No
-        RichTextBox2.Size = New Size(518, 139)
+        RichTextBox2.Size = New Size(505, 86)
         RichTextBox2.TabIndex = 13
         RichTextBox2.TabStop = False
         RichTextBox2.Text = "Please be assured that any information you provide in this form will be reviewed solely by the designated administrator. To protect your privacy, your identity will remain completely anonymous."
@@ -198,7 +219,7 @@ Partial Class Form1
         ' txtBlock
         ' 
         txtBlock.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtBlock.Location = New Point(280, 361)
+        txtBlock.Location = New Point(280, 398)
         txtBlock.Name = "txtBlock"
         txtBlock.Size = New Size(336, 34)
         txtBlock.TabIndex = 5
@@ -207,7 +228,7 @@ Partial Class Form1
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(173, 366)
+        Label3.Location = New Point(173, 403)
         Label3.Name = "Label3"
         Label3.Size = New Size(77, 27)
         Label3.TabIndex = 4
@@ -216,7 +237,7 @@ Partial Class Form1
         ' txtYearLvl
         ' 
         txtYearLvl.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtYearLvl.Location = New Point(280, 309)
+        txtYearLvl.Location = New Point(280, 346)
         txtYearLvl.Name = "txtYearLvl"
         txtYearLvl.Size = New Size(336, 34)
         txtYearLvl.TabIndex = 3
@@ -225,7 +246,7 @@ Partial Class Form1
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(108, 314)
+        Label2.Location = New Point(108, 351)
         Label2.Name = "Label2"
         Label2.Size = New Size(142, 27)
         Label2.TabIndex = 2
@@ -243,30 +264,91 @@ Partial Class Form1
         ' 
         ' userViewPanel
         ' 
+        userViewPanel.Controls.Add(complainsPanel)
         userViewPanel.Controls.Add(Label7)
-        userViewPanel.Location = New Point(148, 43)
+        userViewPanel.Location = New Point(-2, -5)
         userViewPanel.Name = "userViewPanel"
-        userViewPanel.Size = New Size(386, 356)
+        userViewPanel.Size = New Size(1525, 899)
         userViewPanel.TabIndex = 4
+        ' 
+        ' complainsPanel
+        ' 
+        complainsPanel.AutoScroll = True
+        complainsPanel.Controls.Add(itemsPanel)
+        complainsPanel.FlowDirection = FlowDirection.TopDown
+        complainsPanel.Location = New Point(40, 146)
+        complainsPanel.Name = "complainsPanel"
+        complainsPanel.Size = New Size(1440, 715)
+        complainsPanel.TabIndex = 1
+        ' 
+        ' itemsPanel
+        ' 
+        itemsPanel.BackColor = SystemColors.ActiveCaption
+        itemsPanel.Controls.Add(lblDetails)
+        itemsPanel.Controls.Add(lblComplaintType)
+        itemsPanel.Controls.Add(lblComplaintReceiver)
+        itemsPanel.Location = New Point(3, 3)
+        itemsPanel.Name = "itemsPanel"
+        itemsPanel.Size = New Size(1437, 98)
+        itemsPanel.TabIndex = 0
+        ' 
+        ' lblDetails
+        ' 
+        lblDetails.AutoSize = True
+        lblDetails.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblDetails.Location = New Point(720, 30)
+        lblDetails.Name = "lblDetails"
+        lblDetails.Size = New Size(66, 38)
+        lblDetails.TabIndex = 4
+        lblDetails.Text = "test"
+        ' 
+        ' lblComplaintType
+        ' 
+        lblComplaintType.AutoSize = True
+        lblComplaintType.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblComplaintType.Location = New Point(395, 30)
+        lblComplaintType.Name = "lblComplaintType"
+        lblComplaintType.Size = New Size(66, 38)
+        lblComplaintType.TabIndex = 3
+        lblComplaintType.Text = "test"
+        ' 
+        ' lblComplaintReceiver
+        ' 
+        lblComplaintReceiver.AutoSize = True
+        lblComplaintReceiver.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblComplaintReceiver.Location = New Point(112, 30)
+        lblComplaintReceiver.Name = "lblComplaintReceiver"
+        lblComplaintReceiver.Size = New Size(66, 38)
+        lblComplaintReceiver.TabIndex = 2
+        lblComplaintReceiver.Text = "test"
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(20, 33)
+        Label7.Font = New Font("Consolas", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label7.Location = New Point(595, 55)
         Label7.Name = "Label7"
-        Label7.Size = New Size(53, 20)
+        Label7.Size = New Size(350, 47)
         Label7.TabIndex = 0
-        Label7.Text = "Label7"
+        Label7.Text = "Your Complaints"
         ' 
-        ' Label8
+        ' txtStudentID
         ' 
-        Label8.AutoSize = True
-        Label8.Font = New Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label8.Location = New Point(318, 538)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(298, 27)
-        Label8.TabIndex = 19
-        Label8.Text = "Sample showing of data"
+        txtStudentID.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtStudentID.Location = New Point(280, 294)
+        txtStudentID.Name = "txtStudentID"
+        txtStudentID.Size = New Size(336, 34)
+        txtStudentID.TabIndex = 21
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label9.Location = New Point(108, 299)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(142, 27)
+        Label9.TabIndex = 20
+        Label9.Text = "Student ID"
         ' 
         ' Form1
         ' 
@@ -284,6 +366,9 @@ Partial Class Form1
         reviewPanel.PerformLayout()
         userViewPanel.ResumeLayout(False)
         userViewPanel.PerformLayout()
+        complainsPanel.ResumeLayout(False)
+        itemsPanel.ResumeLayout(False)
+        itemsPanel.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -309,5 +394,12 @@ Partial Class Form1
     Friend WithEvents userViewPanel As Panel
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents complainsPanel As FlowLayoutPanel
+    Friend WithEvents itemsPanel As Panel
+    Friend WithEvents lblComplaintReceiver As Label
+    Friend WithEvents lblComplaintType As Label
+    Friend WithEvents lblDetails As Label
+    Friend WithEvents txtStudentID As TextBox
+    Friend WithEvents Label9 As Label
 
 End Class
