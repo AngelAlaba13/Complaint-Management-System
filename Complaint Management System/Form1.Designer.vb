@@ -26,22 +26,26 @@ Partial Class Form1
         btnLogin = New Button()
         loginPanel = New Panel()
         reviewPanel = New Panel()
+        txtComplaint = New ComboBox()
+        txtTarget = New ComboBox()
+        btnSendComplaint = New Button()
+        blockDB = New TextBox()
+        yearLevelDB = New TextBox()
         RichTextBox2 = New RichTextBox()
         txtContent = New RichTextBox()
         Label6 = New Label()
-        txtComplaint = New TextBox()
         Label5 = New Label()
-        txtTarget = New TextBox()
         Label4 = New Label()
         txtBlock = New TextBox()
         Label3 = New Label()
         txtYearLvl = New TextBox()
         Label2 = New Label()
         Label1 = New Label()
-        yearLevelDB = New TextBox()
-        blockDB = New TextBox()
+        userViewPanel = New Panel()
+        Label7 = New Label()
         loginPanel.SuspendLayout()
         reviewPanel.SuspendLayout()
+        userViewPanel.SuspendLayout()
         SuspendLayout()
         ' 
         ' Button1
@@ -66,31 +70,75 @@ Partial Class Form1
         ' 
         loginPanel.Controls.Add(btnLogin)
         loginPanel.Controls.Add(Button1)
-        loginPanel.Location = New Point(271, 55)
+        loginPanel.Location = New Point(332, 29)
         loginPanel.Name = "loginPanel"
         loginPanel.Size = New Size(805, 456)
         loginPanel.TabIndex = 2
         ' 
         ' reviewPanel
         ' 
+        reviewPanel.Controls.Add(txtComplaint)
+        reviewPanel.Controls.Add(txtTarget)
+        reviewPanel.Controls.Add(btnSendComplaint)
         reviewPanel.Controls.Add(blockDB)
         reviewPanel.Controls.Add(yearLevelDB)
         reviewPanel.Controls.Add(RichTextBox2)
         reviewPanel.Controls.Add(txtContent)
         reviewPanel.Controls.Add(Label6)
-        reviewPanel.Controls.Add(txtComplaint)
         reviewPanel.Controls.Add(Label5)
-        reviewPanel.Controls.Add(txtTarget)
         reviewPanel.Controls.Add(Label4)
         reviewPanel.Controls.Add(txtBlock)
         reviewPanel.Controls.Add(Label3)
         reviewPanel.Controls.Add(txtYearLvl)
         reviewPanel.Controls.Add(Label2)
         reviewPanel.Controls.Add(Label1)
-        reviewPanel.Location = New Point(-3, -6)
+        reviewPanel.Location = New Point(-1, -3)
         reviewPanel.Name = "reviewPanel"
         reviewPanel.Size = New Size(1527, 903)
         reviewPanel.TabIndex = 3
+        ' 
+        ' txtComplaint
+        ' 
+        txtComplaint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtComplaint.FormattingEnabled = True
+        txtComplaint.Location = New Point(1025, 231)
+        txtComplaint.Name = "txtComplaint"
+        txtComplaint.Size = New Size(336, 36)
+        txtComplaint.TabIndex = 18
+        ' 
+        ' txtTarget
+        ' 
+        txtTarget.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtTarget.FormattingEnabled = True
+        txtTarget.Location = New Point(1025, 172)
+        txtTarget.Name = "txtTarget"
+        txtTarget.Size = New Size(336, 36)
+        txtTarget.TabIndex = 17
+        ' 
+        ' btnSendComplaint
+        ' 
+        btnSendComplaint.Location = New Point(1097, 824)
+        btnSendComplaint.Name = "btnSendComplaint"
+        btnSendComplaint.Size = New Size(147, 35)
+        btnSendComplaint.TabIndex = 16
+        btnSendComplaint.Text = "Send Complaint"
+        btnSendComplaint.UseVisualStyleBackColor = True
+        ' 
+        ' blockDB
+        ' 
+        blockDB.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        blockDB.Location = New Point(293, 619)
+        blockDB.Name = "blockDB"
+        blockDB.Size = New Size(336, 34)
+        blockDB.TabIndex = 15
+        ' 
+        ' yearLevelDB
+        ' 
+        yearLevelDB.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        yearLevelDB.Location = New Point(293, 568)
+        yearLevelDB.Name = "yearLevelDB"
+        yearLevelDB.Size = New Size(336, 34)
+        yearLevelDB.TabIndex = 14
         ' 
         ' RichTextBox2
         ' 
@@ -125,14 +173,6 @@ Partial Class Form1
         Label6.TabIndex = 10
         Label6.Text = "Details of the Complaint:"
         ' 
-        ' txtComplaint
-        ' 
-        txtComplaint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtComplaint.Location = New Point(1025, 231)
-        txtComplaint.Name = "txtComplaint"
-        txtComplaint.Size = New Size(336, 34)
-        txtComplaint.TabIndex = 9
-        ' 
         ' Label5
         ' 
         Label5.AutoSize = True
@@ -142,14 +182,6 @@ Partial Class Form1
         Label5.Size = New Size(233, 27)
         Label5.TabIndex = 8
         Label5.Text = "Type of Complaint"
-        ' 
-        ' txtTarget
-        ' 
-        txtTarget.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtTarget.Location = New Point(1025, 172)
-        txtTarget.Name = "txtTarget"
-        txtTarget.Size = New Size(336, 34)
-        txtTarget.TabIndex = 7
         ' 
         ' Label4
         ' 
@@ -207,21 +239,22 @@ Partial Class Form1
         Label1.TabIndex = 1
         Label1.Text = "Let Us Hear Your Side"
         ' 
-        ' yearLevelDB
+        ' userViewPanel
         ' 
-        yearLevelDB.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        yearLevelDB.Location = New Point(293, 568)
-        yearLevelDB.Name = "yearLevelDB"
-        yearLevelDB.Size = New Size(336, 34)
-        yearLevelDB.TabIndex = 14
+        userViewPanel.Controls.Add(Label7)
+        userViewPanel.Location = New Point(148, 43)
+        userViewPanel.Name = "userViewPanel"
+        userViewPanel.Size = New Size(386, 356)
+        userViewPanel.TabIndex = 4
         ' 
-        ' blockDB
+        ' Label7
         ' 
-        blockDB.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        blockDB.Location = New Point(293, 619)
-        blockDB.Name = "blockDB"
-        blockDB.Size = New Size(336, 34)
-        blockDB.TabIndex = 15
+        Label7.AutoSize = True
+        Label7.Location = New Point(20, 33)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(53, 20)
+        Label7.TabIndex = 0
+        Label7.Text = "Label7"
         ' 
         ' Form1
         ' 
@@ -229,6 +262,7 @@ Partial Class Form1
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1517, 890)
         Controls.Add(reviewPanel)
+        Controls.Add(userViewPanel)
         Controls.Add(loginPanel)
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
@@ -236,6 +270,8 @@ Partial Class Form1
         loginPanel.ResumeLayout(False)
         reviewPanel.ResumeLayout(False)
         reviewPanel.PerformLayout()
+        userViewPanel.ResumeLayout(False)
+        userViewPanel.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -247,9 +283,7 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents txtYearLvl As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtComplaint As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents txtTarget As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtBlock As TextBox
     Friend WithEvents Label3 As Label
@@ -257,5 +291,10 @@ Partial Class Form1
     Friend WithEvents RichTextBox2 As RichTextBox
     Friend WithEvents yearLevelDB As TextBox
     Friend WithEvents blockDB As TextBox
+    Friend WithEvents btnSendComplaint As Button
+    Friend WithEvents txtTarget As ComboBox
+    Friend WithEvents txtComplaint As ComboBox
+    Friend WithEvents userViewPanel As Panel
+    Friend WithEvents Label7 As Label
 
 End Class
