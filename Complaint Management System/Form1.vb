@@ -50,6 +50,7 @@ Public Class Form1
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         loginPanel.Visible = False
+        userViewPanel.Visible = False
         reviewPanel.Visible = True
     End Sub
 
@@ -145,7 +146,7 @@ Public Class Form1
                 While reader.Read()
                     Dim itemsPanel As New Panel With {
                         .Width = complainsPanel.Width - 20,
-                        .Height = 120,
+                        .Height = 115,
                         .BackColor = Color.White,
                     .BorderStyle = BorderStyle.FixedSingle,
                     .Margin = New Padding(5)
@@ -153,15 +154,17 @@ Public Class Form1
 
                     Dim lblComplaintReceiver As New Label With {
                         .Text = reader("ComplaintReceiver").ToString(),
+                        .Font = New Font("Segoe UI", 15, FontStyle.Bold),
                         .ForeColor = Color.Black,
-                        .Location = New Point(10, 10),
+                        .Location = New Point(10, 5),
                         .AutoSize = True
                         }
 
                     Dim lblComplaintType As New Label With {
                     .Text = reader("ComplaintType").ToString(),
-                    .ForeColor = Color.Gray,
-                    .Location = New Point(10, 35),
+                    .Font = New Font("Segoe UI", 11),
+                    .ForeColor = Color.Black,
+                    .Location = New Point(12, 40),
                     .AutoSize = True
                 }
 
@@ -170,7 +173,7 @@ Public Class Form1
                         .Text = reader("Details").ToString(),
                         .Font = New Font("Segoe UI", 10),
                         .ForeColor = Color.Black,
-                        .Location = New Point(10, 60),
+                        .Location = New Point(10, 75),
                         .Size = New Size(itemsPanel.Width - 20, 40),
                         .AutoEllipsis = True
                     }
