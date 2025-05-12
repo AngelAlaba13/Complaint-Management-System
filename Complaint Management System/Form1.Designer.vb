@@ -26,6 +26,8 @@ Partial Class Form1
         btnLogin = New Button()
         loginPanel = New Panel()
         reviewPanel = New Panel()
+        txtStudentID = New TextBox()
+        Label9 = New Label()
         Label8 = New Label()
         txtComplaint = New ComboBox()
         txtTarget = New ComboBox()
@@ -49,8 +51,6 @@ Partial Class Form1
         lblComplaintType = New Label()
         lblComplaintReceiver = New Label()
         Label7 = New Label()
-        txtStudentID = New TextBox()
-        Label9 = New Label()
         loginPanel.SuspendLayout()
         reviewPanel.SuspendLayout()
         userViewPanel.SuspendLayout()
@@ -105,10 +105,28 @@ Partial Class Form1
         reviewPanel.Controls.Add(txtYearLvl)
         reviewPanel.Controls.Add(Label2)
         reviewPanel.Controls.Add(Label1)
-        reviewPanel.Location = New Point(12, 50)
+        reviewPanel.Location = New Point(6, 10)
         reviewPanel.Name = "reviewPanel"
         reviewPanel.Size = New Size(1514, 850)
         reviewPanel.TabIndex = 3
+        ' 
+        ' txtStudentID
+        ' 
+        txtStudentID.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtStudentID.Location = New Point(280, 294)
+        txtStudentID.Name = "txtStudentID"
+        txtStudentID.Size = New Size(336, 34)
+        txtStudentID.TabIndex = 21
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label9.Location = New Point(108, 299)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(142, 27)
+        Label9.TabIndex = 20
+        Label9.Text = "Student ID"
         ' 
         ' Label8
         ' 
@@ -331,24 +349,6 @@ Partial Class Form1
         Label7.Size = New Size(350, 47)
         Label7.TabIndex = 0
         Label7.Text = "Your Complaints"
-        ' 
-        ' txtStudentID
-        ' 
-        txtStudentID.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtStudentID.Location = New Point(280, 294)
-        txtStudentID.Name = "txtStudentID"
-        txtStudentID.Size = New Size(336, 34)
-        txtStudentID.TabIndex = 21
-        ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label9.Location = New Point(108, 299)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(142, 27)
-        Label9.TabIndex = 20
-        Label9.Text = "Student ID"
         ' 
         ' Form1
         ' 
