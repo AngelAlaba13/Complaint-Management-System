@@ -43,6 +43,7 @@ Partial Class Form1
         Label1 = New Label()
         userViewPanel = New Panel()
         Label7 = New Label()
+        Label8 = New Label()
         loginPanel.SuspendLayout()
         reviewPanel.SuspendLayout()
         userViewPanel.SuspendLayout()
@@ -77,6 +78,7 @@ Partial Class Form1
         ' 
         ' reviewPanel
         ' 
+        reviewPanel.Controls.Add(Label8)
         reviewPanel.Controls.Add(txtComplaint)
         reviewPanel.Controls.Add(txtTarget)
         reviewPanel.Controls.Add(btnSendComplaint)
@@ -256,6 +258,16 @@ Partial Class Form1
         Label7.TabIndex = 0
         Label7.Text = "Label7"
         ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label8.Location = New Point(318, 538)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(298, 27)
+        Label8.TabIndex = 19
+        Label8.Text = "Sample showing of data"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -296,5 +308,6 @@ Partial Class Form1
     Friend WithEvents txtComplaint As ComboBox
     Friend WithEvents userViewPanel As Panel
     Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
 
 End Class
