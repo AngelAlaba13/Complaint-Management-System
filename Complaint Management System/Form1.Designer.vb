@@ -111,7 +111,7 @@ Partial Class Form1
         loginPanel.Controls.Add(LabelLoginID)
         loginPanel.Controls.Add(btnLogin)
         loginPanel.Controls.Add(Button1)
-        loginPanel.Location = New Point(440, 37)
+        loginPanel.Location = New Point(121, 344)
         loginPanel.Name = "loginPanel"
         loginPanel.Size = New Size(805, 456)
         loginPanel.TabIndex = 2
@@ -119,7 +119,7 @@ Partial Class Form1
         ' LabelLoginTitle
         ' 
         LabelLoginTitle.AutoSize = True
-        LabelLoginTitle.Font = New Font("Segoe UI", 11F)
+        LabelLoginTitle.Font = New Font("Segoe UI", 11.0F)
         LabelLoginTitle.Location = New Point(285, 31)
         LabelLoginTitle.Name = "LabelLoginTitle"
         LabelLoginTitle.Size = New Size(194, 25)
@@ -129,7 +129,7 @@ Partial Class Form1
         ' LabelLoginRegister
         ' 
         LabelLoginRegister.AutoSize = True
-        LabelLoginRegister.Font = New Font("Segoe UI", 9F)
+        LabelLoginRegister.Font = New Font("Segoe UI", 9.0F)
         LabelLoginRegister.ForeColor = SystemColors.Highlight
         LabelLoginRegister.Location = New Point(424, 159)
         LabelLoginRegister.Name = "LabelLoginRegister"
@@ -140,7 +140,7 @@ Partial Class Form1
         ' LabelLoginDont
         ' 
         LabelLoginDont.AutoSize = True
-        LabelLoginDont.Font = New Font("Segoe UI", 9F)
+        LabelLoginDont.Font = New Font("Segoe UI", 9.0F)
         LabelLoginDont.Location = New Point(263, 159)
         LabelLoginDont.Name = "LabelLoginDont"
         LabelLoginDont.Size = New Size(163, 20)
@@ -164,7 +164,7 @@ Partial Class Form1
         ' LabelLoginPass
         ' 
         LabelLoginPass.AutoSize = True
-        LabelLoginPass.Font = New Font("Segoe UI", 11F)
+        LabelLoginPass.Font = New Font("Segoe UI", 11.0F)
         LabelLoginPass.Location = New Point(133, 120)
         LabelLoginPass.Name = "LabelLoginPass"
         LabelLoginPass.Size = New Size(95, 25)
@@ -174,7 +174,7 @@ Partial Class Form1
         ' LabelLoginID
         ' 
         LabelLoginID.AutoSize = True
-        LabelLoginID.Font = New Font("Segoe UI", 11F)
+        LabelLoginID.Font = New Font("Segoe UI", 11.0F)
         LabelLoginID.Location = New Point(133, 84)
         LabelLoginID.Name = "LabelLoginID"
         LabelLoginID.Size = New Size(103, 25)
@@ -220,7 +220,7 @@ Partial Class Form1
         ' 
         ' txtInstructor
         ' 
-        txtInstructor.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtInstructor.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtInstructor.FormattingEnabled = True
         txtInstructor.Location = New Point(280, 499)
         txtInstructor.Name = "txtInstructor"
@@ -241,7 +241,7 @@ Partial Class Form1
         ' 
         ' txtBlock
         ' 
-        txtBlock.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtBlock.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtBlock.FormattingEnabled = True
         txtBlock.Location = New Point(280, 398)
         txtBlock.Name = "txtBlock"
@@ -250,7 +250,7 @@ Partial Class Form1
         ' 
         ' txtYearLvl
         ' 
-        txtYearLvl.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtYearLvl.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtYearLvl.FormattingEnabled = True
         txtYearLvl.Location = New Point(280, 346)
         txtYearLvl.Name = "txtYearLvl"
@@ -259,7 +259,7 @@ Partial Class Form1
         ' 
         ' txtStudentID
         ' 
-        txtStudentID.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtStudentID.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtStudentID.Location = New Point(280, 294)
         txtStudentID.Name = "txtStudentID"
         txtStudentID.Size = New Size(336, 34)
@@ -287,7 +287,7 @@ Partial Class Form1
         ' 
         ' txtComplaint
         ' 
-        txtComplaint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtComplaint.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtComplaint.FormattingEnabled = True
         txtComplaint.Location = New Point(1025, 231)
         txtComplaint.Name = "txtComplaint"
@@ -296,7 +296,7 @@ Partial Class Form1
         ' 
         ' txtTarget
         ' 
-        txtTarget.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtTarget.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtTarget.FormattingEnabled = True
         txtTarget.Location = New Point(1025, 172)
         txtTarget.Name = "txtTarget"
@@ -314,7 +314,7 @@ Partial Class Form1
         ' 
         ' blockDB
         ' 
-        blockDB.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        blockDB.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         blockDB.Location = New Point(264, 744)
         blockDB.Name = "blockDB"
         blockDB.Size = New Size(336, 34)
@@ -322,7 +322,7 @@ Partial Class Form1
         ' 
         ' yearLevelDB
         ' 
-        yearLevelDB.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        yearLevelDB.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         yearLevelDB.Location = New Point(264, 693)
         yearLevelDB.Name = "yearLevelDB"
         yearLevelDB.Size = New Size(336, 34)
@@ -404,7 +404,7 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Consolas", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Consolas", 24.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(547, 61)
         Label1.Name = "Label1"
         Label1.Size = New Size(482, 47)
@@ -416,7 +416,7 @@ Partial Class Form1
         userViewPanel.Controls.Add(backViewPage)
         userViewPanel.Controls.Add(Label7)
         userViewPanel.Controls.Add(complainsPanel)
-        userViewPanel.Location = New Point(68, 246)
+        userViewPanel.Location = New Point(118, 676)
         userViewPanel.Name = "userViewPanel"
         userViewPanel.Size = New Size(1525, 899)
         userViewPanel.TabIndex = 4
@@ -433,7 +433,7 @@ Partial Class Form1
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Font = New Font("Consolas", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label7.Font = New Font("Consolas", 24.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label7.Location = New Point(572, 63)
         Label7.Name = "Label7"
         Label7.Size = New Size(350, 47)
@@ -472,7 +472,7 @@ Partial Class Form1
         ' 
         userDashBoard.Controls.Add(createReviewPanel)
         userDashBoard.Controls.Add(viewButtonPanel)
-        userDashBoard.Location = New Point(109, 718)
+        userDashBoard.Location = New Point(85, 740)
         userDashBoard.Name = "userDashBoard"
         userDashBoard.Size = New Size(1525, 897)
         userDashBoard.TabIndex = 2
@@ -539,7 +539,7 @@ Partial Class Form1
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1517, 890)
         Controls.Add(loginPanel)
