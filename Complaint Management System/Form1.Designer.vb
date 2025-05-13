@@ -26,12 +26,13 @@ Partial Class Form1
         Button1 = New Button()
         btnLogin = New Button()
         loginPanel = New Panel()
-        Label14 = New Label()
-        Label13 = New Label()
+        LabelLoginTitle = New Label()
+        LabelLoginRegister = New Label()
+        LabelLoginDont = New Label()
         txtLoginPass = New TextBox()
         txtLoginID = New TextBox()
-        Label12 = New Label()
-        Label11 = New Label()
+        LabelLoginPass = New Label()
+        LabelLoginID = New Label()
         reviewPanel = New Panel()
         txtInstructor = New ComboBox()
         Label10 = New Label()
@@ -62,7 +63,6 @@ Partial Class Form1
         lblComplaintReceiver = New Label()
         userDashBoard = New Panel()
         btnToView = New Button()
-        Label15 = New Label()
         loginPanel.SuspendLayout()
         reviewPanel.SuspendLayout()
         userViewPanel.SuspendLayout()
@@ -91,13 +91,13 @@ Partial Class Form1
         ' 
         ' loginPanel
         ' 
-        loginPanel.Controls.Add(Label15)
-        loginPanel.Controls.Add(Label14)
-        loginPanel.Controls.Add(Label13)
+        loginPanel.Controls.Add(LabelLoginTitle)
+        loginPanel.Controls.Add(LabelLoginRegister)
+        loginPanel.Controls.Add(LabelLoginDont)
         loginPanel.Controls.Add(txtLoginPass)
         loginPanel.Controls.Add(txtLoginID)
-        loginPanel.Controls.Add(Label12)
-        loginPanel.Controls.Add(Label11)
+        loginPanel.Controls.Add(LabelLoginPass)
+        loginPanel.Controls.Add(LabelLoginID)
         loginPanel.Controls.Add(btnLogin)
         loginPanel.Controls.Add(Button1)
         loginPanel.Location = New Point(105, 4)
@@ -105,26 +105,36 @@ Partial Class Form1
         loginPanel.Size = New Size(805, 456)
         loginPanel.TabIndex = 2
         ' 
-        ' Label14
+        ' LabelLoginTitle
         ' 
-        Label14.AutoSize = True
-        Label14.Font = New Font("Segoe UI", 9.0F)
-        Label14.ForeColor = SystemColors.Highlight
-        Label14.Location = New Point(424, 159)
-        Label14.Name = "Label14"
-        Label14.Size = New Size(96, 20)
-        Label14.TabIndex = 6
-        Label14.Text = "Register here"
+        LabelLoginTitle.AutoSize = True
+        LabelLoginTitle.Font = New Font("Segoe UI", 11.0F)
+        LabelLoginTitle.Location = New Point(285, 31)
+        LabelLoginTitle.Name = "LabelLoginTitle"
+        LabelLoginTitle.Size = New Size(194, 25)
+        LabelLoginTitle.TabIndex = 7
+        LabelLoginTitle.Text = "NEMSU Review Board"
         ' 
-        ' Label13
+        ' LabelLoginRegister
         ' 
-        Label13.AutoSize = True
-        Label13.Font = New Font("Segoe UI", 9.0F)
-        Label13.Location = New Point(263, 159)
-        Label13.Name = "Label13"
-        Label13.Size = New Size(163, 20)
-        Label13.TabIndex = 5
-        Label13.Text = "Don't have an account?"
+        LabelLoginRegister.AutoSize = True
+        LabelLoginRegister.Font = New Font("Segoe UI", 9.0F)
+        LabelLoginRegister.ForeColor = SystemColors.Highlight
+        LabelLoginRegister.Location = New Point(424, 159)
+        LabelLoginRegister.Name = "LabelLoginRegister"
+        LabelLoginRegister.Size = New Size(96, 20)
+        LabelLoginRegister.TabIndex = 6
+        LabelLoginRegister.Text = "Register here"
+        ' 
+        ' LabelLoginDont
+        ' 
+        LabelLoginDont.AutoSize = True
+        LabelLoginDont.Font = New Font("Segoe UI", 9.0F)
+        LabelLoginDont.Location = New Point(263, 159)
+        LabelLoginDont.Name = "LabelLoginDont"
+        LabelLoginDont.Size = New Size(163, 20)
+        LabelLoginDont.TabIndex = 5
+        LabelLoginDont.Text = "Don't have an account?"
         ' 
         ' txtLoginPass
         ' 
@@ -140,25 +150,25 @@ Partial Class Form1
         txtLoginID.Size = New Size(284, 27)
         txtLoginID.TabIndex = 4
         ' 
-        ' Label12
+        ' LabelLoginPass
         ' 
-        Label12.AutoSize = True
-        Label12.Font = New Font("Segoe UI", 11.0F)
-        Label12.Location = New Point(133, 120)
-        Label12.Name = "Label12"
-        Label12.Size = New Size(95, 25)
-        Label12.TabIndex = 3
-        Label12.Text = "Password:"
+        LabelLoginPass.AutoSize = True
+        LabelLoginPass.Font = New Font("Segoe UI", 11.0F)
+        LabelLoginPass.Location = New Point(133, 120)
+        LabelLoginPass.Name = "LabelLoginPass"
+        LabelLoginPass.Size = New Size(95, 25)
+        LabelLoginPass.TabIndex = 3
+        LabelLoginPass.Text = "Password:"
         ' 
-        ' Label11
+        ' LabelLoginID
         ' 
-        Label11.AutoSize = True
-        Label11.Font = New Font("Segoe UI", 11.0F)
-        Label11.Location = New Point(133, 84)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(103, 25)
-        Label11.TabIndex = 2
-        Label11.Text = "Student ID:"
+        LabelLoginID.AutoSize = True
+        LabelLoginID.Font = New Font("Segoe UI", 11.0F)
+        LabelLoginID.Location = New Point(133, 84)
+        LabelLoginID.Name = "LabelLoginID"
+        LabelLoginID.Size = New Size(103, 25)
+        LabelLoginID.TabIndex = 2
+        LabelLoginID.Text = "Student ID:"
         ' 
         ' reviewPanel
         ' 
@@ -469,16 +479,6 @@ Partial Class Form1
         btnToView.TextAlign = ContentAlignment.BottomCenter
         btnToView.UseVisualStyleBackColor = True
         ' 
-        ' Label15
-        ' 
-        Label15.AutoSize = True
-        Label15.Font = New Font("Segoe UI", 11.0F)
-        Label15.Location = New Point(285, 31)
-        Label15.Name = "Label15"
-        Label15.Size = New Size(194, 25)
-        Label15.TabIndex = 7
-        Label15.Text = "NEMSU Review Board"
-        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(8.0F, 20.0F)
@@ -536,12 +536,12 @@ Partial Class Form1
     Friend WithEvents Label10 As Label
     Friend WithEvents userDashBoard As Panel
     Friend WithEvents btnToView As Button
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label11 As Label
+    Friend WithEvents LabelLoginPass As Label
+    Friend WithEvents LabelLoginID As Label
     Friend WithEvents txtLoginID As TextBox
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label13 As Label
+    Friend WithEvents LabelLoginRegister As Label
+    Friend WithEvents LabelLoginDont As Label
     Friend WithEvents txtLoginPass As TextBox
-    Friend WithEvents Label15 As Label
+    Friend WithEvents LabelLoginTitle As Label
 
 End Class
