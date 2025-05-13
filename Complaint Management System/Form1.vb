@@ -233,10 +233,57 @@ Public Class Form1
         End If
     End Sub
 
+    'direct to view reviews
     Private Sub viewButtonPanel_Click(sender As Object, e As EventArgs) Handles viewButtonPanel.Click
         userViewPanel.Visible = True
         loginPanel.Visible = False
         userDashBoard.Visible = False
         reviewPanel.Visible = False
     End Sub
+
+    Private Sub viewButtonPicture_Click(sender As Object, e As EventArgs) Handles viewButtonPicture.Click
+        userViewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        reviewPanel.Visible = False
+    End Sub
+
+    Private Sub viewButtonLabel_Click(sender As Object, e As EventArgs) Handles viewButtonLabel.Click
+        userViewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        reviewPanel.Visible = False
+    End Sub
+
+
+    'direct to create
+    Private Sub createReviewPanel_Click(sender As Object, e As EventArgs) Handles createReviewPanel.Click
+        reviewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        userViewPanel.Visible = False
+    End Sub
+
+    Private Sub createReviewPicture_Click(sender As Object, e As EventArgs) Handles createReviewPicture.Click
+        reviewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        userViewPanel.Visible = False
+    End Sub
+
+    Private Sub createReviewLabel_Click(sender As Object, e As EventArgs) Handles createReviewLabel.Click
+        reviewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        userViewPanel.Visible = False
+    End Sub
+
+    Private Sub backReviewPage_Click(sender As Object, e As EventArgs) Handles backReviewPage.Click
+        userDashBoard.Visible = True
+        loginPanel.Visible = False
+        reviewPanel.Visible = False
+        userViewPanel.Visible = False
+    End Sub
+
+
 End Class
