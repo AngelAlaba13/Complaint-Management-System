@@ -10,6 +10,7 @@ Public Class Form1
     Private currentUserID As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Mycn.ConnectionString = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
         Mycn.ConnectionString = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
         Mycn.Open()
 
@@ -59,9 +60,12 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim registrationForm As New registrationForm
-        registrationForm.Show()
-        Hide()
+        txtLoginID.Text = ""
+        txtLoginPass.Text = ""
+
+        'Dim registrationForm As New registrationForm
+        'registrationForm.Show()
+        'Hide()
 
     End Sub
 
@@ -290,5 +294,4 @@ Public Class Form1
         userViewPanel.Visible = False
         loginPanel.Visible = False
         reviewPanel.Visible = False
-    End Sub
 End Class
