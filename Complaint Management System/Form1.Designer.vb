@@ -55,13 +55,17 @@ Partial Class Form1
         lblComplaintType = New Label()
         lblComplaintReceiver = New Label()
         userDashBoard = New Panel()
-        btnToView = New Button()
+        viewButtonPanel = New Panel()
+        Label11 = New Label()
+        PictureBox1 = New PictureBox()
         loginPanel.SuspendLayout()
         reviewPanel.SuspendLayout()
         userViewPanel.SuspendLayout()
         complainsPanel.SuspendLayout()
         itemsPanel.SuspendLayout()
         userDashBoard.SuspendLayout()
+        viewButtonPanel.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Button1
@@ -86,7 +90,7 @@ Partial Class Form1
         ' 
         loginPanel.Controls.Add(btnLogin)
         loginPanel.Controls.Add(Button1)
-        loginPanel.Location = New Point(332, 29)
+        loginPanel.Location = New Point(160, 422)
         loginPanel.Name = "loginPanel"
         loginPanel.Size = New Size(805, 456)
         loginPanel.TabIndex = 2
@@ -113,14 +117,14 @@ Partial Class Form1
         reviewPanel.Controls.Add(Label3)
         reviewPanel.Controls.Add(Label2)
         reviewPanel.Controls.Add(Label1)
-        reviewPanel.Location = New Point(122, 364)
+        reviewPanel.Location = New Point(130, 465)
         reviewPanel.Name = "reviewPanel"
         reviewPanel.Size = New Size(1514, 850)
         reviewPanel.TabIndex = 3
         ' 
         ' txtInstructor
         ' 
-        txtInstructor.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtInstructor.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtInstructor.FormattingEnabled = True
         txtInstructor.Location = New Point(280, 499)
         txtInstructor.Name = "txtInstructor"
@@ -141,7 +145,7 @@ Partial Class Form1
         ' 
         ' txtBlock
         ' 
-        txtBlock.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtBlock.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtBlock.FormattingEnabled = True
         txtBlock.Location = New Point(280, 398)
         txtBlock.Name = "txtBlock"
@@ -150,7 +154,7 @@ Partial Class Form1
         ' 
         ' txtYearLvl
         ' 
-        txtYearLvl.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtYearLvl.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtYearLvl.FormattingEnabled = True
         txtYearLvl.Location = New Point(280, 346)
         txtYearLvl.Name = "txtYearLvl"
@@ -159,7 +163,7 @@ Partial Class Form1
         ' 
         ' txtStudentID
         ' 
-        txtStudentID.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtStudentID.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtStudentID.Location = New Point(280, 294)
         txtStudentID.Name = "txtStudentID"
         txtStudentID.Size = New Size(336, 34)
@@ -187,7 +191,7 @@ Partial Class Form1
         ' 
         ' txtComplaint
         ' 
-        txtComplaint.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtComplaint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtComplaint.FormattingEnabled = True
         txtComplaint.Location = New Point(1025, 231)
         txtComplaint.Name = "txtComplaint"
@@ -196,7 +200,7 @@ Partial Class Form1
         ' 
         ' txtTarget
         ' 
-        txtTarget.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtTarget.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtTarget.FormattingEnabled = True
         txtTarget.Location = New Point(1025, 172)
         txtTarget.Name = "txtTarget"
@@ -214,7 +218,7 @@ Partial Class Form1
         ' 
         ' blockDB
         ' 
-        blockDB.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        blockDB.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         blockDB.Location = New Point(293, 619)
         blockDB.Name = "blockDB"
         blockDB.Size = New Size(336, 34)
@@ -222,7 +226,7 @@ Partial Class Form1
         ' 
         ' yearLevelDB
         ' 
-        yearLevelDB.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        yearLevelDB.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         yearLevelDB.Location = New Point(293, 568)
         yearLevelDB.Name = "yearLevelDB"
         yearLevelDB.Size = New Size(336, 34)
@@ -304,7 +308,7 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Consolas", 24.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Consolas", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(547, 61)
         Label1.Name = "Label1"
         Label1.Size = New Size(482, 47)
@@ -315,7 +319,7 @@ Partial Class Form1
         ' 
         userViewPanel.Controls.Add(Label7)
         userViewPanel.Controls.Add(complainsPanel)
-        userViewPanel.Location = New Point(165, 133)
+        userViewPanel.Location = New Point(84, 485)
         userViewPanel.Name = "userViewPanel"
         userViewPanel.Size = New Size(1525, 899)
         userViewPanel.TabIndex = 4
@@ -323,7 +327,7 @@ Partial Class Form1
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Font = New Font("Consolas", 24.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label7.Font = New Font("Consolas", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label7.Location = New Point(572, 63)
         Label7.Name = "Label7"
         Label7.Size = New Size(350, 47)
@@ -383,31 +387,51 @@ Partial Class Form1
         ' 
         ' userDashBoard
         ' 
-        userDashBoard.Controls.Add(btnToView)
-        userDashBoard.Location = New Point(12, 12)
+        userDashBoard.Controls.Add(viewButtonPanel)
+        userDashBoard.Location = New Point(2, 2)
         userDashBoard.Name = "userDashBoard"
         userDashBoard.Size = New Size(1525, 897)
         userDashBoard.TabIndex = 2
         ' 
-        ' btnToView
+        ' viewButtonPanel
         ' 
-        btnToView.Image = CType(resources.GetObject("btnToView.Image"), Image)
-        btnToView.Location = New Point(403, 287)
-        btnToView.Name = "btnToView"
-        btnToView.Size = New Size(275, 236)
-        btnToView.TabIndex = 0
-        btnToView.TextAlign = ContentAlignment.BottomCenter
-        btnToView.UseVisualStyleBackColor = True
+        viewButtonPanel.BackColor = SystemColors.ButtonFace
+        viewButtonPanel.BorderStyle = BorderStyle.FixedSingle
+        viewButtonPanel.Controls.Add(Label11)
+        viewButtonPanel.Controls.Add(PictureBox1)
+        viewButtonPanel.Location = New Point(358, 215)
+        viewButtonPanel.Name = "viewButtonPanel"
+        viewButtonPanel.Size = New Size(275, 221)
+        viewButtonPanel.TabIndex = 1
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label11.Location = New Point(40, 172)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(195, 25)
+        Label11.TabIndex = 1
+        Label11.Text = "View Sent Complaints"
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Location = New Point(69, 27)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(132, 123)
+        PictureBox1.TabIndex = 0
+        PictureBox1.TabStop = False
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1517, 890)
         Controls.Add(userDashBoard)
+        Controls.Add(loginPanel)
         Controls.Add(reviewPanel)
         Controls.Add(userViewPanel)
-        Controls.Add(loginPanel)
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
@@ -420,6 +444,9 @@ Partial Class Form1
         itemsPanel.ResumeLayout(False)
         itemsPanel.PerformLayout()
         userDashBoard.ResumeLayout(False)
+        viewButtonPanel.ResumeLayout(False)
+        viewButtonPanel.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -455,6 +482,8 @@ Partial Class Form1
     Friend WithEvents txtInstructor As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents userDashBoard As Panel
-    Friend WithEvents btnToView As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents viewButtonPanel As Panel
+    Friend WithEvents Label11 As Label
 
 End Class
