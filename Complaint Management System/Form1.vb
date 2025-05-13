@@ -67,9 +67,7 @@ Public Class Form1
         txtLoginID.Text = ""
         txtLoginPass.Text = ""
 
-        'Dim registrationForm As New registrationForm
-        'registrationForm.Show()
-        'Hide()
+
 
     End Sub
 
@@ -80,7 +78,7 @@ Public Class Form1
         Dim username As String = txtLoginID.Text
         Dim Password As String = txtLoginPass.Text
 
-        Dim query As String = "Select * from userTable where StudentID = '" & username & "' AND Password = '" & Password & "'"
+        Dim query As String = "Select * from userTable where StudentID = '" & username & "' AND [Password] = '" & Password & "'"
         Dim adapter As New SqlDataAdapter(query, Mycn)
 
         Dim table As New DataTable()
@@ -88,10 +86,25 @@ Public Class Form1
         Try
             adapter.Fill(table)
 
+            Dim role As String = table.Rows(0)("Role").ToString()
+
+
             If table.Rows.Count > 0 Then
-                loginPanel.Visible = False
-                userViewPanel.Visible = False
-                reviewPanel.Visible = True
+                If role = "student" Then
+                    loginPanel.Visible = False
+                    userViewPanel.Visible = False
+                    reviewPanel.Visible = True
+
+                    MessageBox.Show("Login Successful.")
+                ElseIf (role = "admin") Then
+                    loginPanel.Visible = False
+                    adminForm.Show()
+                    Me.Hide()
+                    adminForm.Focus()
+                    MessageBox.Show("Paki modify ko ani nga part kay basin dli mao ang admin form nga na show and other stuff nga nagka idk wtf?")
+
+                End If
+
             Else
                 MessageBox.Show("Invalid Student ID or Password.")
             End If
@@ -324,5 +337,11 @@ Public Class Form1
         userViewPanel.Visible = False
         loginPanel.Visible = False
         reviewPanel.Visible = False
+    End Sub
+
+    Private Sub LabelLoginRegister_Click(sender As Object, e As EventArgs) Handles LabelLoginRegister.Click
+        Dim registrationForm As New registrationForm
+        registrationForm.Show()
+        Hide()
     End Sub
 End Class
