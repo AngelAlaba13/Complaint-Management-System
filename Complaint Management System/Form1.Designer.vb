@@ -49,6 +49,7 @@ Partial Class Form1
         Label2 = New Label()
         Label1 = New Label()
         userViewPanel = New Panel()
+        backViewPage = New PictureBox()
         Label7 = New Label()
         complainsPanel = New FlowLayoutPanel()
         itemsPanel = New Panel()
@@ -64,6 +65,7 @@ Partial Class Form1
         reviewPanel.SuspendLayout()
         CType(backReviewPage, ComponentModel.ISupportInitialize).BeginInit()
         userViewPanel.SuspendLayout()
+        CType(backViewPage, ComponentModel.ISupportInitialize).BeginInit()
         complainsPanel.SuspendLayout()
         itemsPanel.SuspendLayout()
         userDashBoard.SuspendLayout()
@@ -332,12 +334,22 @@ Partial Class Form1
         ' 
         ' userViewPanel
         ' 
+        userViewPanel.Controls.Add(backViewPage)
         userViewPanel.Controls.Add(Label7)
         userViewPanel.Controls.Add(complainsPanel)
-        userViewPanel.Location = New Point(-4, -6)
+        userViewPanel.Location = New Point(68, 246)
         userViewPanel.Name = "userViewPanel"
         userViewPanel.Size = New Size(1525, 899)
         userViewPanel.TabIndex = 4
+        ' 
+        ' backViewPage
+        ' 
+        backViewPage.Image = CType(resources.GetObject("backViewPage.Image"), Image)
+        backViewPage.Location = New Point(24, 18)
+        backViewPage.Name = "backViewPage"
+        backViewPage.Size = New Size(70, 49)
+        backViewPage.TabIndex = 27
+        backViewPage.TabStop = False
         ' 
         ' Label7
         ' 
@@ -381,7 +393,7 @@ Partial Class Form1
         ' 
         userDashBoard.Controls.Add(createReviewPanel)
         userDashBoard.Controls.Add(viewButtonPanel)
-        userDashBoard.Location = New Point(116, 718)
+        userDashBoard.Location = New Point(109, 718)
         userDashBoard.Name = "userDashBoard"
         userDashBoard.Size = New Size(1525, 897)
         userDashBoard.TabIndex = 2
@@ -464,6 +476,7 @@ Partial Class Form1
         CType(backReviewPage, ComponentModel.ISupportInitialize).EndInit()
         userViewPanel.ResumeLayout(False)
         userViewPanel.PerformLayout()
+        CType(backViewPage, ComponentModel.ISupportInitialize).EndInit()
         complainsPanel.ResumeLayout(False)
         itemsPanel.ResumeLayout(False)
         itemsPanel.PerformLayout()
@@ -514,5 +527,6 @@ Partial Class Form1
     Friend WithEvents createReviewLabel As Label
     Friend WithEvents createReviewPicture As PictureBox
     Friend WithEvents backReviewPage As PictureBox
+    Friend WithEvents backViewPage As PictureBox
 
 End Class
