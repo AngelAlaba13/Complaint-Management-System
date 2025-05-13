@@ -26,6 +26,12 @@ Partial Class Form1
         Button1 = New Button()
         btnLogin = New Button()
         loginPanel = New Panel()
+        Label14 = New Label()
+        Label13 = New Label()
+        txtLoginPass = New TextBox()
+        txtLoginID = New TextBox()
+        Label12 = New Label()
+        Label11 = New Label()
         reviewPanel = New Panel()
         txtInstructor = New ComboBox()
         Label10 = New Label()
@@ -56,6 +62,7 @@ Partial Class Form1
         lblComplaintReceiver = New Label()
         userDashBoard = New Panel()
         btnToView = New Button()
+        Label15 = New Label()
         loginPanel.SuspendLayout()
         reviewPanel.SuspendLayout()
         userViewPanel.SuspendLayout()
@@ -66,16 +73,16 @@ Partial Class Form1
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(208, 43)
+        Button1.Location = New Point(403, 200)
         Button1.Name = "Button1"
         Button1.Size = New Size(134, 41)
         Button1.TabIndex = 0
-        Button1.Text = "Register"
+        Button1.Text = "Clear"
         Button1.UseVisualStyleBackColor = True
         ' 
         ' btnLogin
         ' 
-        btnLogin.Location = New Point(208, 104)
+        btnLogin.Location = New Point(256, 200)
         btnLogin.Name = "btnLogin"
         btnLogin.Size = New Size(134, 41)
         btnLogin.TabIndex = 1
@@ -84,12 +91,74 @@ Partial Class Form1
         ' 
         ' loginPanel
         ' 
+        loginPanel.Controls.Add(Label15)
+        loginPanel.Controls.Add(Label14)
+        loginPanel.Controls.Add(Label13)
+        loginPanel.Controls.Add(txtLoginPass)
+        loginPanel.Controls.Add(txtLoginID)
+        loginPanel.Controls.Add(Label12)
+        loginPanel.Controls.Add(Label11)
         loginPanel.Controls.Add(btnLogin)
         loginPanel.Controls.Add(Button1)
-        loginPanel.Location = New Point(332, 29)
+        loginPanel.Location = New Point(105, 4)
         loginPanel.Name = "loginPanel"
         loginPanel.Size = New Size(805, 456)
         loginPanel.TabIndex = 2
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.Font = New Font("Segoe UI", 9F)
+        Label14.ForeColor = SystemColors.Highlight
+        Label14.Location = New Point(424, 159)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(96, 20)
+        Label14.TabIndex = 6
+        Label14.Text = "Register here"
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.Font = New Font("Segoe UI", 9F)
+        Label13.Location = New Point(263, 159)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(163, 20)
+        Label13.TabIndex = 5
+        Label13.Text = "Don't have an account?"
+        ' 
+        ' txtLoginPass
+        ' 
+        txtLoginPass.Location = New Point(253, 120)
+        txtLoginPass.Name = "txtLoginPass"
+        txtLoginPass.Size = New Size(284, 27)
+        txtLoginPass.TabIndex = 4
+        ' 
+        ' txtLoginID
+        ' 
+        txtLoginID.Location = New Point(253, 84)
+        txtLoginID.Name = "txtLoginID"
+        txtLoginID.Size = New Size(284, 27)
+        txtLoginID.TabIndex = 4
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Font = New Font("Segoe UI", 11F)
+        Label12.Location = New Point(133, 120)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(95, 25)
+        Label12.TabIndex = 3
+        Label12.Text = "Password:"
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Segoe UI", 11F)
+        Label11.Location = New Point(133, 84)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(103, 25)
+        Label11.TabIndex = 2
+        Label11.Text = "Student ID:"
         ' 
         ' reviewPanel
         ' 
@@ -383,6 +452,7 @@ Partial Class Form1
         ' 
         ' userDashBoard
         ' 
+        userDashBoard.Controls.Add(loginPanel)
         userDashBoard.Controls.Add(btnToView)
         userDashBoard.Location = New Point(12, 12)
         userDashBoard.Name = "userDashBoard"
@@ -399,12 +469,21 @@ Partial Class Form1
         btnToView.TextAlign = ContentAlignment.BottomCenter
         btnToView.UseVisualStyleBackColor = True
         ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Font = New Font("Segoe UI", 11F)
+        Label15.Location = New Point(285, 31)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(194, 25)
+        Label15.TabIndex = 7
+        Label15.Text = "NEMSU Review Board"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1517, 890)
-        Controls.Add(loginPanel)
         Controls.Add(userDashBoard)
         Controls.Add(reviewPanel)
         Controls.Add(userViewPanel)
@@ -412,6 +491,7 @@ Partial Class Form1
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
         loginPanel.ResumeLayout(False)
+        loginPanel.PerformLayout()
         reviewPanel.ResumeLayout(False)
         reviewPanel.PerformLayout()
         userViewPanel.ResumeLayout(False)
@@ -456,5 +536,12 @@ Partial Class Form1
     Friend WithEvents Label10 As Label
     Friend WithEvents userDashBoard As Panel
     Friend WithEvents btnToView As Button
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents txtLoginID As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents txtLoginPass As TextBox
+    Friend WithEvents Label15 As Label
 
 End Class
