@@ -232,4 +232,11 @@ Public Class Form1
             txtInstructor.SelectedIndex = -1
         End If
     End Sub
+
+    Private Sub viewButtonPanel_Click(sender As Object, e As EventArgs) Handles viewButtonPanel.Click
+        userViewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        reviewPanel.Vis
+    End Sub
 End Class

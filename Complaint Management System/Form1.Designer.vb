@@ -55,13 +55,17 @@ Partial Class Form1
         lblComplaintType = New Label()
         lblComplaintReceiver = New Label()
         userDashBoard = New Panel()
-        btnToView = New Button()
+        viewButtonPanel = New Panel()
+        Label11 = New Label()
+        PictureBox1 = New PictureBox()
         loginPanel.SuspendLayout()
         reviewPanel.SuspendLayout()
         userViewPanel.SuspendLayout()
         complainsPanel.SuspendLayout()
         itemsPanel.SuspendLayout()
         userDashBoard.SuspendLayout()
+        viewButtonPanel.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Button1
@@ -383,21 +387,41 @@ Partial Class Form1
         ' 
         ' userDashBoard
         ' 
-        userDashBoard.Controls.Add(btnToView)
+        userDashBoard.Controls.Add(viewButtonPanel)
         userDashBoard.Location = New Point(12, 12)
         userDashBoard.Name = "userDashBoard"
         userDashBoard.Size = New Size(1525, 897)
         userDashBoard.TabIndex = 2
         ' 
-        ' btnToView
+        ' viewButtonPanel
         ' 
-        btnToView.Image = CType(resources.GetObject("btnToView.Image"), Image)
-        btnToView.Location = New Point(403, 287)
-        btnToView.Name = "btnToView"
-        btnToView.Size = New Size(275, 236)
-        btnToView.TabIndex = 0
-        btnToView.TextAlign = ContentAlignment.BottomCenter
-        btnToView.UseVisualStyleBackColor = True
+        viewButtonPanel.BackColor = SystemColors.ButtonFace
+        viewButtonPanel.BorderStyle = BorderStyle.FixedSingle
+        viewButtonPanel.Controls.Add(Label11)
+        viewButtonPanel.Controls.Add(PictureBox1)
+        viewButtonPanel.Location = New Point(358, 215)
+        viewButtonPanel.Name = "viewButtonPanel"
+        viewButtonPanel.Size = New Size(275, 221)
+        viewButtonPanel.TabIndex = 1
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label11.Location = New Point(40, 172)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(195, 25)
+        Label11.TabIndex = 1
+        Label11.Text = "View Sent Complaints"
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Location = New Point(69, 27)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(132, 123)
+        PictureBox1.TabIndex = 0
+        PictureBox1.TabStop = False
         ' 
         ' Form1
         ' 
@@ -420,6 +444,9 @@ Partial Class Form1
         itemsPanel.ResumeLayout(False)
         itemsPanel.PerformLayout()
         userDashBoard.ResumeLayout(False)
+        viewButtonPanel.ResumeLayout(False)
+        viewButtonPanel.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -455,6 +482,8 @@ Partial Class Form1
     Friend WithEvents txtInstructor As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents userDashBoard As Panel
-    Friend WithEvents btnToView As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents viewButtonPanel As Panel
+    Friend WithEvents Label11 As Label
 
 End Class
