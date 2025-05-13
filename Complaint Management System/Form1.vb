@@ -24,11 +24,23 @@ Public Class Form1
             .ReadOnly = True
         End With
 
-        Dim MyDataRow As DataRow = MyDataTbl.Rows(0)
+        Dim MyDataRow As DataRow = MyDataTbl.Rows(5)
 
-        yearLevelDB.Text = MyDataRow("YearLevel").ToString()
+        yearLevelDB.Text = MyDataRow("Instructor").ToString()
         blockDB.Text = MyDataRow("Block").ToString()
 
+        txtYearLvl.Items.Add("1st Year")
+        txtYearLvl.Items.Add("2nd Year")
+        txtYearLvl.Items.Add("3rd Year")
+        txtYearLvl.Items.Add("4th Year")
+
+        txtBlock.Items.Add("A")
+        txtBlock.Items.Add("B")
+        txtBlock.Items.Add("C")
+        txtBlock.Items.Add("D")
+        txtBlock.Items.Add("E")
+        txtBlock.Items.Add("F")
+        txtBlock.Items.Add("G")
 
         txtTarget.Items.Add("to Instructor")
         txtTarget.Items.Add("to the College")
@@ -38,6 +50,11 @@ Public Class Form1
         txtComplaint.Items.Add("Complaint")
         txtComplaint.Items.Add("Feedback")
         txtComplaint.Items.Add("Suggestion")
+
+        txtInstructor.Items.Add("Dr. Nap Nichole Greg S. Salera")
+        txtInstructor.Items.Add("Engr. Esmael V. Maliberan")
+        txtInstructor.Items.Add("Dr. Christian Born A. Isip")
+        txtInstructor.Items.Add("Dr. Catherine R. Alimboyong")
 
     End Sub
 
@@ -93,6 +110,12 @@ Public Class Form1
                 Exit Sub
             End If
 
+            If txtTarget.Text = "to Instructor" AndAlso txtInstructor.SelectedIndex = -1 Then
+                MessageBox.Show("Please select the instructor to whom the complaint is directed.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                txtInstructor.Focus()
+                Exit Sub
+            End If
+
             Dim MyNewRow As DataRow = MyDataTbl.NewRow()
             MyDataTbl.Rows.Add(MyNewRow)
             MyRowPosition = MyDataTbl.Rows.Count - 1
@@ -103,13 +126,19 @@ Public Class Form1
             MyDataTbl.Rows(MyRowPosition)("ComplaintReceiver") = txtTarget.Text
             MyDataTbl.Rows(MyRowPosition)("ComplaintType") = txtComplaint.Text
             MyDataTbl.Rows(MyRowPosition)("Details") = txtContent.Text
+            If txtTarget.Text = "to Instructor" Then
+                MyDataTbl.Rows(MyRowPosition)("Instructor") = txtInstructor.Text
+            Else
+                MyDataTbl.Rows(MyRowPosition)("Instructor") = DBNull.Value
+            End If
 
             MyDataApt.Update(MyDataTbl)
 
             txtStudentID.Clear()
-            txtYearLvl.Clear()
-            txtBlock.Clear()
+            txtYearLvl.SelectedIndex = -1
+            txtBlock.SelectedIndex = -1
             txtTarget.SelectedIndex = -1
+            txtInstructor.SelectedIndex = -1
             txtComplaint.SelectedIndex = -1
             txtContent.Clear()
 
@@ -189,5 +218,18 @@ Public Class Form1
                 End While
             End Using
         End Using
+    End Sub
+
+    Private Sub txtTarget_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtTarget.SelectedIndexChanged
+        Console.WriteLine("Target: " & txtTarget.Text)
+
+        If txtTarget.SelectedItem IsNot Nothing AndAlso txtTarget.SelectedItem.ToString() = "to Instructor" Then
+            txtInstructor.Visible = True
+            Label10.Visible = True
+        Else
+            txtInstructor.Visible = False
+            Label10.Visible = False
+            txtInstructor.SelectedIndex = -1
+        End If
     End Sub
 End Class
