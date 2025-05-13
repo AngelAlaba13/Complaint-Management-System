@@ -3,6 +3,7 @@
 Public Class Form1
 
     Private MyDataApt As New SqlDataAdapter
+    Private UserDataAdpt As New SqlDataAdapter
     Private MyCmdBld As New SqlCommandBuilder
     Private MyDataTbl As New DataTable
     Private Mycn As New SqlConnection
@@ -10,11 +11,14 @@ Public Class Form1
     Private currentUserID As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Angel-connection
         'Mycn.ConnectionString = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
-        Mycn.ConnectionString = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
+        'karl-connection
+        Mycn.ConnectionString = "Data Source=LAPTOP-O85KOUQB\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
         Mycn.Open()
 
         MyDataApt = New SqlDataAdapter("SELECT * FROM masterTable", Mycn)
+        UserDataAdpt = New SqlDataAdapter("SELECT * FROM userTable", Mycn)
         MyCmdBld = New SqlCommandBuilder(MyDataApt)
         MyDataApt.Fill(MyDataTbl)
 
@@ -70,9 +74,35 @@ Public Class Form1
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        loginPanel.Visible = False
-        userViewPanel.Visible = False
-        reviewPanel.Visible = True
+
+        Dim loginBld = New SqlCommandBuilder(UserDataAdpt)
+
+        Dim username As String = txtLoginID.Text
+        Dim Password As String = txtLoginPass.Text
+
+        Dim query As String = "Select * from userTable where StudentID = '" & username & "' AND Password = '" & Password & "'"
+        Dim adapter As New SqlDataAdapter(query, Mycn)
+
+        Dim table As New DataTable()
+
+        Try
+            adapter.Fill(table)
+
+            If table.Rows.Count > 0 Then
+                loginPanel.Visible = False
+                userViewPanel.Visible = False
+                reviewPanel.Visible = True
+            Else
+                MessageBox.Show("Invalid Student ID or Password.")
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error:" & ex.Message)
+        End Try
+
+
+
+
     End Sub
 
     Private Sub btnSendComplaint_Click(sender As Object, e As EventArgs) Handles btnSendComplaint.Click
@@ -294,4 +324,5 @@ Public Class Form1
         userViewPanel.Visible = False
         loginPanel.Visible = False
         reviewPanel.Visible = False
+    End Sub
 End Class

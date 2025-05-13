@@ -111,7 +111,7 @@ Partial Class Form1
         loginPanel.Controls.Add(LabelLoginID)
         loginPanel.Controls.Add(btnLogin)
         loginPanel.Controls.Add(Button1)
-        loginPanel.Location = New Point(32, 837)
+        loginPanel.Location = New Point(440, 37)
         loginPanel.Name = "loginPanel"
         loginPanel.Size = New Size(805, 456)
         loginPanel.TabIndex = 2
@@ -119,7 +119,7 @@ Partial Class Form1
         ' LabelLoginTitle
         ' 
         LabelLoginTitle.AutoSize = True
-        LabelLoginTitle.Font = New Font("Segoe UI", 11.0F)
+        LabelLoginTitle.Font = New Font("Segoe UI", 11F)
         LabelLoginTitle.Location = New Point(285, 31)
         LabelLoginTitle.Name = "LabelLoginTitle"
         LabelLoginTitle.Size = New Size(194, 25)
@@ -129,7 +129,7 @@ Partial Class Form1
         ' LabelLoginRegister
         ' 
         LabelLoginRegister.AutoSize = True
-        LabelLoginRegister.Font = New Font("Segoe UI", 9.0F)
+        LabelLoginRegister.Font = New Font("Segoe UI", 9F)
         LabelLoginRegister.ForeColor = SystemColors.Highlight
         LabelLoginRegister.Location = New Point(424, 159)
         LabelLoginRegister.Name = "LabelLoginRegister"
@@ -140,7 +140,7 @@ Partial Class Form1
         ' LabelLoginDont
         ' 
         LabelLoginDont.AutoSize = True
-        LabelLoginDont.Font = New Font("Segoe UI", 9.0F)
+        LabelLoginDont.Font = New Font("Segoe UI", 9F)
         LabelLoginDont.Location = New Point(263, 159)
         LabelLoginDont.Name = "LabelLoginDont"
         LabelLoginDont.Size = New Size(163, 20)
@@ -164,7 +164,7 @@ Partial Class Form1
         ' LabelLoginPass
         ' 
         LabelLoginPass.AutoSize = True
-        LabelLoginPass.Font = New Font("Segoe UI", 11.0F)
+        LabelLoginPass.Font = New Font("Segoe UI", 11F)
         LabelLoginPass.Location = New Point(133, 120)
         LabelLoginPass.Name = "LabelLoginPass"
         LabelLoginPass.Size = New Size(95, 25)
@@ -174,7 +174,7 @@ Partial Class Form1
         ' LabelLoginID
         ' 
         LabelLoginID.AutoSize = True
-        LabelLoginID.Font = New Font("Segoe UI", 11.0F)
+        LabelLoginID.Font = New Font("Segoe UI", 11F)
         LabelLoginID.Location = New Point(133, 84)
         LabelLoginID.Name = "LabelLoginID"
         LabelLoginID.Size = New Size(103, 25)
@@ -542,10 +542,10 @@ Partial Class Form1
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1517, 890)
+        Controls.Add(loginPanel)
         Controls.Add(userViewPanel)
         Controls.Add(reviewPanel)
         Controls.Add(userDashBoard)
-        Controls.Add(loginPanel)
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
@@ -608,7 +608,7 @@ Partial Class Form1
     Friend WithEvents createReviewPicture As PictureBox
     Friend WithEvents backReviewPage As PictureBox
     Friend WithEvents backViewPage As PictureBox
-  
+
     Friend WithEvents btnToView As Button
     Friend WithEvents LabelLoginPass As Label
     Friend WithEvents LabelLoginID As Label
