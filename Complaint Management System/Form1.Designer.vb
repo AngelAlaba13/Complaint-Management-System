@@ -26,6 +26,13 @@ Partial Class Form1
         Button1 = New Button()
         btnLogin = New Button()
         loginPanel = New Panel()
+        LabelLoginTitle = New Label()
+        LabelLoginRegister = New Label()
+        LabelLoginDont = New Label()
+        txtLoginPass = New TextBox()
+        txtLoginID = New TextBox()
+        LabelLoginPass = New Label()
+        LabelLoginID = New Label()
         reviewPanel = New Panel()
         backReviewPage = New PictureBox()
         txtInstructor = New ComboBox()
@@ -77,16 +84,16 @@ Partial Class Form1
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(208, 43)
+        Button1.Location = New Point(403, 200)
         Button1.Name = "Button1"
         Button1.Size = New Size(134, 41)
         Button1.TabIndex = 0
-        Button1.Text = "Register"
+        Button1.Text = "Clear"
         Button1.UseVisualStyleBackColor = True
         ' 
         ' btnLogin
         ' 
-        btnLogin.Location = New Point(208, 104)
+        btnLogin.Location = New Point(256, 200)
         btnLogin.Name = "btnLogin"
         btnLogin.Size = New Size(134, 41)
         btnLogin.TabIndex = 1
@@ -95,12 +102,88 @@ Partial Class Form1
         ' 
         ' loginPanel
         ' 
+        loginPanel.Controls.Add(LabelLoginTitle)
+        loginPanel.Controls.Add(LabelLoginRegister)
+        loginPanel.Controls.Add(LabelLoginDont)
+        loginPanel.Controls.Add(txtLoginPass)
+        loginPanel.Controls.Add(txtLoginID)
+        loginPanel.Controls.Add(LabelLoginPass)
+        loginPanel.Controls.Add(LabelLoginID)
         loginPanel.Controls.Add(btnLogin)
         loginPanel.Controls.Add(Button1)
+<<<<<<< HEAD
         loginPanel.Location = New Point(69, 411)
+=======
+        loginPanel.Location = New Point(440, 37)
+>>>>>>> 2fa492034e5cb2f74a6b1e656d4ab0ca5f0561ad
         loginPanel.Name = "loginPanel"
         loginPanel.Size = New Size(805, 456)
         loginPanel.TabIndex = 2
+        ' 
+        ' LabelLoginTitle
+        ' 
+        LabelLoginTitle.AutoSize = True
+        LabelLoginTitle.Font = New Font("Segoe UI", 11F)
+        LabelLoginTitle.Location = New Point(285, 31)
+        LabelLoginTitle.Name = "LabelLoginTitle"
+        LabelLoginTitle.Size = New Size(194, 25)
+        LabelLoginTitle.TabIndex = 7
+        LabelLoginTitle.Text = "NEMSU Review Board"
+        ' 
+        ' LabelLoginRegister
+        ' 
+        LabelLoginRegister.AutoSize = True
+        LabelLoginRegister.Font = New Font("Segoe UI", 9F)
+        LabelLoginRegister.ForeColor = SystemColors.Highlight
+        LabelLoginRegister.Location = New Point(424, 159)
+        LabelLoginRegister.Name = "LabelLoginRegister"
+        LabelLoginRegister.Size = New Size(96, 20)
+        LabelLoginRegister.TabIndex = 6
+        LabelLoginRegister.Text = "Register here"
+        ' 
+        ' LabelLoginDont
+        ' 
+        LabelLoginDont.AutoSize = True
+        LabelLoginDont.Font = New Font("Segoe UI", 9F)
+        LabelLoginDont.Location = New Point(263, 159)
+        LabelLoginDont.Name = "LabelLoginDont"
+        LabelLoginDont.Size = New Size(163, 20)
+        LabelLoginDont.TabIndex = 5
+        LabelLoginDont.Text = "Don't have an account?"
+        ' 
+        ' txtLoginPass
+        ' 
+        txtLoginPass.Location = New Point(253, 120)
+        txtLoginPass.Name = "txtLoginPass"
+        txtLoginPass.Size = New Size(284, 27)
+        txtLoginPass.TabIndex = 4
+        ' 
+        ' txtLoginID
+        ' 
+        txtLoginID.Location = New Point(253, 84)
+        txtLoginID.Name = "txtLoginID"
+        txtLoginID.Size = New Size(284, 27)
+        txtLoginID.TabIndex = 4
+        ' 
+        ' LabelLoginPass
+        ' 
+        LabelLoginPass.AutoSize = True
+        LabelLoginPass.Font = New Font("Segoe UI", 11F)
+        LabelLoginPass.Location = New Point(133, 120)
+        LabelLoginPass.Name = "LabelLoginPass"
+        LabelLoginPass.Size = New Size(95, 25)
+        LabelLoginPass.TabIndex = 3
+        LabelLoginPass.Text = "Password:"
+        ' 
+        ' LabelLoginID
+        ' 
+        LabelLoginID.AutoSize = True
+        LabelLoginID.Font = New Font("Segoe UI", 11F)
+        LabelLoginID.Location = New Point(133, 84)
+        LabelLoginID.Name = "LabelLoginID"
+        LabelLoginID.Size = New Size(103, 25)
+        LabelLoginID.TabIndex = 2
+        LabelLoginID.Text = "Student ID:"
         ' 
         ' reviewPanel
         ' 
@@ -471,6 +554,7 @@ Partial Class Form1
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
         loginPanel.ResumeLayout(False)
+        loginPanel.PerformLayout()
         reviewPanel.ResumeLayout(False)
         reviewPanel.PerformLayout()
         CType(backReviewPage, ComponentModel.ISupportInitialize).EndInit()
@@ -528,5 +612,14 @@ Partial Class Form1
     Friend WithEvents createReviewPicture As PictureBox
     Friend WithEvents backReviewPage As PictureBox
     Friend WithEvents backViewPage As PictureBox
+
+    Friend WithEvents btnToView As Button
+    Friend WithEvents LabelLoginPass As Label
+    Friend WithEvents LabelLoginID As Label
+    Friend WithEvents txtLoginID As TextBox
+    Friend WithEvents LabelLoginRegister As Label
+    Friend WithEvents LabelLoginDont As Label
+    Friend WithEvents txtLoginPass As TextBox
+    Friend WithEvents LabelLoginTitle As Label
 
 End Class
