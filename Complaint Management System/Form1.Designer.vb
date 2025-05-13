@@ -34,6 +34,7 @@ Partial Class Form1
         LabelLoginPass = New Label()
         LabelLoginID = New Label()
         reviewPanel = New Panel()
+        backReviewPage = New PictureBox()
         txtInstructor = New ComboBox()
         Label10 = New Label()
         txtBlock = New ComboBox()
@@ -55,20 +56,30 @@ Partial Class Form1
         Label2 = New Label()
         Label1 = New Label()
         userViewPanel = New Panel()
+        backViewPage = New PictureBox()
         Label7 = New Label()
         complainsPanel = New FlowLayoutPanel()
         itemsPanel = New Panel()
-        lblDetails = New Label()
-        lblComplaintType = New Label()
         lblComplaintReceiver = New Label()
         userDashBoard = New Panel()
-        btnToView = New Button()
+        createReviewPanel = New Panel()
+        createReviewLabel = New Label()
+        createReviewPicture = New PictureBox()
+        viewButtonPanel = New Panel()
+        viewButtonLabel = New Label()
+        viewButtonPicture = New PictureBox()
         loginPanel.SuspendLayout()
         reviewPanel.SuspendLayout()
+        CType(backReviewPage, ComponentModel.ISupportInitialize).BeginInit()
         userViewPanel.SuspendLayout()
+        CType(backViewPage, ComponentModel.ISupportInitialize).BeginInit()
         complainsPanel.SuspendLayout()
         itemsPanel.SuspendLayout()
         userDashBoard.SuspendLayout()
+        createReviewPanel.SuspendLayout()
+        CType(createReviewPicture, ComponentModel.ISupportInitialize).BeginInit()
+        viewButtonPanel.SuspendLayout()
+        CType(viewButtonPicture, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Button1
@@ -100,7 +111,7 @@ Partial Class Form1
         loginPanel.Controls.Add(LabelLoginID)
         loginPanel.Controls.Add(btnLogin)
         loginPanel.Controls.Add(Button1)
-        loginPanel.Location = New Point(105, 4)
+        loginPanel.Location = New Point(32, 837)
         loginPanel.Name = "loginPanel"
         loginPanel.Size = New Size(805, 456)
         loginPanel.TabIndex = 2
@@ -172,6 +183,7 @@ Partial Class Form1
         ' 
         ' reviewPanel
         ' 
+        reviewPanel.Controls.Add(backReviewPage)
         reviewPanel.Controls.Add(txtInstructor)
         reviewPanel.Controls.Add(Label10)
         reviewPanel.Controls.Add(txtBlock)
@@ -192,14 +204,23 @@ Partial Class Form1
         reviewPanel.Controls.Add(Label3)
         reviewPanel.Controls.Add(Label2)
         reviewPanel.Controls.Add(Label1)
-        reviewPanel.Location = New Point(122, 364)
+        reviewPanel.Location = New Point(56, 797)
         reviewPanel.Name = "reviewPanel"
-        reviewPanel.Size = New Size(1514, 850)
+        reviewPanel.Size = New Size(1521, 896)
         reviewPanel.TabIndex = 3
+        ' 
+        ' backReviewPage
+        ' 
+        backReviewPage.Image = CType(resources.GetObject("backReviewPage.Image"), Image)
+        backReviewPage.Location = New Point(29, 21)
+        backReviewPage.Name = "backReviewPage"
+        backReviewPage.Size = New Size(70, 49)
+        backReviewPage.TabIndex = 26
+        backReviewPage.TabStop = False
         ' 
         ' txtInstructor
         ' 
-        txtInstructor.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtInstructor.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtInstructor.FormattingEnabled = True
         txtInstructor.Location = New Point(280, 499)
         txtInstructor.Name = "txtInstructor"
@@ -220,7 +241,7 @@ Partial Class Form1
         ' 
         ' txtBlock
         ' 
-        txtBlock.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtBlock.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtBlock.FormattingEnabled = True
         txtBlock.Location = New Point(280, 398)
         txtBlock.Name = "txtBlock"
@@ -229,7 +250,7 @@ Partial Class Form1
         ' 
         ' txtYearLvl
         ' 
-        txtYearLvl.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtYearLvl.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtYearLvl.FormattingEnabled = True
         txtYearLvl.Location = New Point(280, 346)
         txtYearLvl.Name = "txtYearLvl"
@@ -238,7 +259,7 @@ Partial Class Form1
         ' 
         ' txtStudentID
         ' 
-        txtStudentID.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtStudentID.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtStudentID.Location = New Point(280, 294)
         txtStudentID.Name = "txtStudentID"
         txtStudentID.Size = New Size(336, 34)
@@ -258,7 +279,7 @@ Partial Class Form1
         ' 
         Label8.AutoSize = True
         Label8.Font = New Font("Consolas", 13.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label8.Location = New Point(318, 538)
+        Label8.Location = New Point(289, 663)
         Label8.Name = "Label8"
         Label8.Size = New Size(298, 27)
         Label8.TabIndex = 19
@@ -266,7 +287,7 @@ Partial Class Form1
         ' 
         ' txtComplaint
         ' 
-        txtComplaint.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtComplaint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtComplaint.FormattingEnabled = True
         txtComplaint.Location = New Point(1025, 231)
         txtComplaint.Name = "txtComplaint"
@@ -275,7 +296,7 @@ Partial Class Form1
         ' 
         ' txtTarget
         ' 
-        txtTarget.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtTarget.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtTarget.FormattingEnabled = True
         txtTarget.Location = New Point(1025, 172)
         txtTarget.Name = "txtTarget"
@@ -293,16 +314,16 @@ Partial Class Form1
         ' 
         ' blockDB
         ' 
-        blockDB.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        blockDB.Location = New Point(293, 619)
+        blockDB.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        blockDB.Location = New Point(264, 744)
         blockDB.Name = "blockDB"
         blockDB.Size = New Size(336, 34)
         blockDB.TabIndex = 15
         ' 
         ' yearLevelDB
         ' 
-        yearLevelDB.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        yearLevelDB.Location = New Point(293, 568)
+        yearLevelDB.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        yearLevelDB.Location = New Point(264, 693)
         yearLevelDB.Name = "yearLevelDB"
         yearLevelDB.Size = New Size(336, 34)
         yearLevelDB.TabIndex = 14
@@ -317,7 +338,7 @@ Partial Class Form1
         RichTextBox2.Name = "RichTextBox2"
         RichTextBox2.ReadOnly = True
         RichTextBox2.RightToLeft = RightToLeft.No
-        RichTextBox2.Size = New Size(505, 86)
+        RichTextBox2.Size = New Size(512, 132)
         RichTextBox2.TabIndex = 13
         RichTextBox2.TabStop = False
         RichTextBox2.Text = "Please be assured that any information you provide in this form will be reviewed solely by the designated administrator. To protect your privacy, your identity will remain completely anonymous."
@@ -383,7 +404,7 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Consolas", 24.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Consolas", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(547, 61)
         Label1.Name = "Label1"
         Label1.Size = New Size(482, 47)
@@ -392,17 +413,27 @@ Partial Class Form1
         ' 
         ' userViewPanel
         ' 
+        userViewPanel.Controls.Add(backViewPage)
         userViewPanel.Controls.Add(Label7)
         userViewPanel.Controls.Add(complainsPanel)
-        userViewPanel.Location = New Point(165, 133)
+        userViewPanel.Location = New Point(68, 246)
         userViewPanel.Name = "userViewPanel"
         userViewPanel.Size = New Size(1525, 899)
         userViewPanel.TabIndex = 4
         ' 
+        ' backViewPage
+        ' 
+        backViewPage.Image = CType(resources.GetObject("backViewPage.Image"), Image)
+        backViewPage.Location = New Point(24, 18)
+        backViewPage.Name = "backViewPage"
+        backViewPage.Size = New Size(70, 49)
+        backViewPage.TabIndex = 27
+        backViewPage.TabStop = False
+        ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Font = New Font("Consolas", 24.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label7.Font = New Font("Consolas", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label7.Location = New Point(572, 63)
         Label7.Name = "Label7"
         Label7.Size = New Size(350, 47)
@@ -422,33 +453,11 @@ Partial Class Form1
         ' itemsPanel
         ' 
         itemsPanel.BackColor = SystemColors.ActiveCaption
-        itemsPanel.Controls.Add(lblDetails)
-        itemsPanel.Controls.Add(lblComplaintType)
         itemsPanel.Controls.Add(lblComplaintReceiver)
         itemsPanel.Location = New Point(3, 3)
         itemsPanel.Name = "itemsPanel"
         itemsPanel.Size = New Size(1437, 98)
         itemsPanel.TabIndex = 0
-        ' 
-        ' lblDetails
-        ' 
-        lblDetails.AutoSize = True
-        lblDetails.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblDetails.Location = New Point(720, 30)
-        lblDetails.Name = "lblDetails"
-        lblDetails.Size = New Size(66, 38)
-        lblDetails.TabIndex = 4
-        lblDetails.Text = "test"
-        ' 
-        ' lblComplaintType
-        ' 
-        lblComplaintType.AutoSize = True
-        lblComplaintType.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblComplaintType.Location = New Point(395, 30)
-        lblComplaintType.Name = "lblComplaintType"
-        lblComplaintType.Size = New Size(66, 38)
-        lblComplaintType.TabIndex = 3
-        lblComplaintType.Text = "test"
         ' 
         ' lblComplaintReceiver
         ' 
@@ -456,37 +465,87 @@ Partial Class Form1
         lblComplaintReceiver.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblComplaintReceiver.Location = New Point(112, 30)
         lblComplaintReceiver.Name = "lblComplaintReceiver"
-        lblComplaintReceiver.Size = New Size(66, 38)
+        lblComplaintReceiver.Size = New Size(0, 38)
         lblComplaintReceiver.TabIndex = 2
-        lblComplaintReceiver.Text = "test"
         ' 
         ' userDashBoard
         ' 
-        userDashBoard.Controls.Add(loginPanel)
-        userDashBoard.Controls.Add(btnToView)
-        userDashBoard.Location = New Point(12, 12)
+        userDashBoard.Controls.Add(createReviewPanel)
+        userDashBoard.Controls.Add(viewButtonPanel)
+        userDashBoard.Location = New Point(109, 718)
         userDashBoard.Name = "userDashBoard"
         userDashBoard.Size = New Size(1525, 897)
         userDashBoard.TabIndex = 2
         ' 
-        ' btnToView
+        ' createReviewPanel
         ' 
-        btnToView.Image = CType(resources.GetObject("btnToView.Image"), Image)
-        btnToView.Location = New Point(403, 287)
-        btnToView.Name = "btnToView"
-        btnToView.Size = New Size(275, 236)
-        btnToView.TabIndex = 0
-        btnToView.TextAlign = ContentAlignment.BottomCenter
-        btnToView.UseVisualStyleBackColor = True
+        createReviewPanel.BackColor = SystemColors.ButtonFace
+        createReviewPanel.BorderStyle = BorderStyle.FixedSingle
+        createReviewPanel.Controls.Add(createReviewLabel)
+        createReviewPanel.Controls.Add(createReviewPicture)
+        createReviewPanel.Location = New Point(717, 215)
+        createReviewPanel.Name = "createReviewPanel"
+        createReviewPanel.Size = New Size(275, 221)
+        createReviewPanel.TabIndex = 2
+        ' 
+        ' createReviewLabel
+        ' 
+        createReviewLabel.AutoSize = True
+        createReviewLabel.Font = New Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        createReviewLabel.Location = New Point(68, 172)
+        createReviewLabel.Name = "createReviewLabel"
+        createReviewLabel.Size = New Size(145, 25)
+        createReviewLabel.TabIndex = 1
+        createReviewLabel.Text = "Send Complaint"
+        ' 
+        ' createReviewPicture
+        ' 
+        createReviewPicture.Image = CType(resources.GetObject("createReviewPicture.Image"), Image)
+        createReviewPicture.Location = New Point(74, 27)
+        createReviewPicture.Name = "createReviewPicture"
+        createReviewPicture.Size = New Size(132, 130)
+        createReviewPicture.TabIndex = 0
+        createReviewPicture.TabStop = False
+        ' 
+        ' viewButtonPanel
+        ' 
+        viewButtonPanel.BackColor = SystemColors.ButtonFace
+        viewButtonPanel.BorderStyle = BorderStyle.FixedSingle
+        viewButtonPanel.Controls.Add(viewButtonLabel)
+        viewButtonPanel.Controls.Add(viewButtonPicture)
+        viewButtonPanel.Location = New Point(358, 215)
+        viewButtonPanel.Name = "viewButtonPanel"
+        viewButtonPanel.Size = New Size(275, 221)
+        viewButtonPanel.TabIndex = 1
+        ' 
+        ' viewButtonLabel
+        ' 
+        viewButtonLabel.AutoSize = True
+        viewButtonLabel.Font = New Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        viewButtonLabel.Location = New Point(40, 172)
+        viewButtonLabel.Name = "viewButtonLabel"
+        viewButtonLabel.Size = New Size(195, 25)
+        viewButtonLabel.TabIndex = 1
+        viewButtonLabel.Text = "View Sent Complaints"
+        ' 
+        ' viewButtonPicture
+        ' 
+        viewButtonPicture.Image = CType(resources.GetObject("viewButtonPicture.Image"), Image)
+        viewButtonPicture.Location = New Point(69, 27)
+        viewButtonPicture.Name = "viewButtonPicture"
+        viewButtonPicture.Size = New Size(132, 123)
+        viewButtonPicture.TabIndex = 0
+        viewButtonPicture.TabStop = False
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1517, 890)
-        Controls.Add(userDashBoard)
-        Controls.Add(reviewPanel)
         Controls.Add(userViewPanel)
+        Controls.Add(reviewPanel)
+        Controls.Add(userDashBoard)
+        Controls.Add(loginPanel)
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
@@ -494,12 +553,20 @@ Partial Class Form1
         loginPanel.PerformLayout()
         reviewPanel.ResumeLayout(False)
         reviewPanel.PerformLayout()
+        CType(backReviewPage, ComponentModel.ISupportInitialize).EndInit()
         userViewPanel.ResumeLayout(False)
         userViewPanel.PerformLayout()
+        CType(backViewPage, ComponentModel.ISupportInitialize).EndInit()
         complainsPanel.ResumeLayout(False)
         itemsPanel.ResumeLayout(False)
         itemsPanel.PerformLayout()
         userDashBoard.ResumeLayout(False)
+        createReviewPanel.ResumeLayout(False)
+        createReviewPanel.PerformLayout()
+        CType(createReviewPicture, ComponentModel.ISupportInitialize).EndInit()
+        viewButtonPanel.ResumeLayout(False)
+        viewButtonPanel.PerformLayout()
+        CType(viewButtonPicture, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -526,8 +593,6 @@ Partial Class Form1
     Friend WithEvents complainsPanel As FlowLayoutPanel
     Friend WithEvents itemsPanel As Panel
     Friend WithEvents lblComplaintReceiver As Label
-    Friend WithEvents lblComplaintType As Label
-    Friend WithEvents lblDetails As Label
     Friend WithEvents txtStudentID As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents txtBlock As ComboBox
@@ -535,6 +600,15 @@ Partial Class Form1
     Friend WithEvents txtInstructor As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents userDashBoard As Panel
+    Friend WithEvents viewButtonPicture As PictureBox
+    Friend WithEvents viewButtonPanel As Panel
+    Friend WithEvents viewButtonLabel As Label
+    Friend WithEvents createReviewPanel As Panel
+    Friend WithEvents createReviewLabel As Label
+    Friend WithEvents createReviewPicture As PictureBox
+    Friend WithEvents backReviewPage As PictureBox
+    Friend WithEvents backViewPage As PictureBox
+  
     Friend WithEvents btnToView As Button
     Friend WithEvents LabelLoginPass As Label
     Friend WithEvents LabelLoginID As Label

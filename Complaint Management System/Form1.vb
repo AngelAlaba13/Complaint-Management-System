@@ -237,7 +237,61 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtLoginID.TextChanged, txtLoginPass.TextChanged
-
+    'direct to view reviews
+    Private Sub viewButtonPanel_Click(sender As Object, e As EventArgs) Handles viewButtonPanel.Click
+        userViewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        reviewPanel.Visible = False
     End Sub
+
+    Private Sub viewButtonPicture_Click(sender As Object, e As EventArgs) Handles viewButtonPicture.Click
+        userViewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        reviewPanel.Visible = False
+    End Sub
+
+    Private Sub viewButtonLabel_Click(sender As Object, e As EventArgs) Handles viewButtonLabel.Click
+        userViewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        reviewPanel.Visible = False
+    End Sub
+
+
+    'direct to create
+    Private Sub createReviewPanel_Click(sender As Object, e As EventArgs) Handles createReviewPanel.Click
+        reviewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        userViewPanel.Visible = False
+    End Sub
+
+    Private Sub createReviewPicture_Click(sender As Object, e As EventArgs) Handles createReviewPicture.Click
+        reviewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        userViewPanel.Visible = False
+    End Sub
+
+    Private Sub createReviewLabel_Click(sender As Object, e As EventArgs) Handles createReviewLabel.Click
+        reviewPanel.Visible = True
+        loginPanel.Visible = False
+        userDashBoard.Visible = False
+        userViewPanel.Visible = False
+    End Sub
+
+    Private Sub backReviewPage_Click(sender As Object, e As EventArgs) Handles backReviewPage.Click
+        userDashBoard.Visible = True
+        loginPanel.Visible = False
+        reviewPanel.Visible = False
+        userViewPanel.Visible = False
+    End Sub
+
+    Private Sub backViewPage_Click(sender As Object, e As EventArgs) Handles backViewPage.Click
+        userDashBoard.Visible = True
+        userViewPanel.Visible = False
+        loginPanel.Visible = False
+        reviewPanel.Visible = False
 End Class
