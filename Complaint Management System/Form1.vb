@@ -237,6 +237,6 @@ Public Class Form1
         userViewPanel.Visible = True
         loginPanel.Visible = False
         userDashBoard.Visible = False
-        reviewPanel.Vis
+        reviewPanel.Visible = False
     End Sub
 End Class
