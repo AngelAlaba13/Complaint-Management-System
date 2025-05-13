@@ -285,5 +285,10 @@ Public Class Form1
         userViewPanel.Visible = False
     End Sub
 
-
+    Private Sub backViewPage_Click(sender As Object, e As EventArgs) Handles backViewPage.Click
+        userDashBoard.Visible = True
+        userViewPanel.Visible = False
+        loginPanel.Visible = False
+        reviewPanel.Visible = False
+    End Sub
 End Class
