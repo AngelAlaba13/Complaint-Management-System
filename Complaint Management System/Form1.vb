@@ -6,7 +6,7 @@ Public Class Form1
     Private UserDataAdpt As New SqlDataAdapter
     Private MyCmdBld As New SqlCommandBuilder
     Private MyDataTbl As New DataTable
-    Private Mycn As New SqlConnection
+    Public Shared Mycn As New SqlConnection
     Private MyRowPosition As Integer = 0
     Private currentUserID As String
 
@@ -25,6 +25,7 @@ Public Class Form1
         userDashBoard.Visible = False
         userViewPanel.Visible = False
         reviewPanel.Visible = False
+        txtLoginPass.PasswordChar = "*"c
 
         With MyDataTbl.Columns("ID")
             .AutoIncrement = True
@@ -116,10 +117,6 @@ Public Class Form1
         Catch ex As Exception
             MessageBox.Show("Error:" & ex.Message)
         End Try
-
-
-
-
     End Sub
 
     Private Sub btnSendComplaint_Click(sender As Object, e As EventArgs) Handles btnSendComplaint.Click
