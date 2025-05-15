@@ -93,7 +93,8 @@ Public Class Form1
                 If role = "student" Then
                     loginPanel.Visible = False
                     userViewPanel.Visible = False
-                    reviewPanel.Visible = True
+                    userDashBoard.Visible = True
+                    reviewPanel.Visible = False
 
                     MessageBox.Show("Login Successful.")
                 ElseIf (role = "admin") Then
