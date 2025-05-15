@@ -30,6 +30,14 @@ Partial Class adminForm
         btnShowComplaints = New Button()
         btnShowFeedbacks = New Button()
         btnShowSuggestions = New Button()
+        btnShowInstructors = New Button()
+        btnShowCollege = New Button()
+        btnShowOfficers = New Button()
+        btnShowOthers = New Button()
+        btnShowFirstYear = New Button()
+        btnShowSecondYear = New Button()
+        btnShowThirdYear = New Button()
+        btnShowFourthYear = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -83,7 +91,7 @@ Partial Class adminForm
         ' btnShowComplaints
         ' 
         btnShowComplaints.Font = New Font("Consolas", 9F)
-        btnShowComplaints.Location = New Point(974, 260)
+        btnShowComplaints.Location = New Point(1249, 477)
         btnShowComplaints.Name = "btnShowComplaints"
         btnShowComplaints.Size = New Size(171, 35)
         btnShowComplaints.TabIndex = 5
@@ -93,7 +101,7 @@ Partial Class adminForm
         ' btnShowFeedbacks
         ' 
         btnShowFeedbacks.Font = New Font("Consolas", 9F)
-        btnShowFeedbacks.Location = New Point(974, 301)
+        btnShowFeedbacks.Location = New Point(1249, 518)
         btnShowFeedbacks.Name = "btnShowFeedbacks"
         btnShowFeedbacks.Size = New Size(171, 35)
         btnShowFeedbacks.TabIndex = 6
@@ -103,18 +111,106 @@ Partial Class adminForm
         ' btnShowSuggestions
         ' 
         btnShowSuggestions.Font = New Font("Consolas", 9F)
-        btnShowSuggestions.Location = New Point(974, 342)
+        btnShowSuggestions.Location = New Point(1249, 559)
         btnShowSuggestions.Name = "btnShowSuggestions"
         btnShowSuggestions.Size = New Size(171, 35)
         btnShowSuggestions.TabIndex = 7
         btnShowSuggestions.Text = "Suggestions"
         btnShowSuggestions.UseVisualStyleBackColor = True
         ' 
+        ' btnShowInstructors
+        ' 
+        btnShowInstructors.Font = New Font("Consolas", 9F)
+        btnShowInstructors.Location = New Point(1249, 260)
+        btnShowInstructors.Name = "btnShowInstructors"
+        btnShowInstructors.Size = New Size(171, 35)
+        btnShowInstructors.TabIndex = 8
+        btnShowInstructors.Text = "to Instructor"
+        btnShowInstructors.UseVisualStyleBackColor = True
+        ' 
+        ' btnShowCollege
+        ' 
+        btnShowCollege.Font = New Font("Consolas", 9F)
+        btnShowCollege.Location = New Point(1249, 301)
+        btnShowCollege.Name = "btnShowCollege"
+        btnShowCollege.Size = New Size(171, 35)
+        btnShowCollege.TabIndex = 9
+        btnShowCollege.Text = "to the college"
+        btnShowCollege.UseVisualStyleBackColor = True
+        ' 
+        ' btnShowOfficers
+        ' 
+        btnShowOfficers.Font = New Font("Consolas", 9F)
+        btnShowOfficers.Location = New Point(1249, 342)
+        btnShowOfficers.Name = "btnShowOfficers"
+        btnShowOfficers.Size = New Size(171, 35)
+        btnShowOfficers.TabIndex = 10
+        btnShowOfficers.Text = "to the officers"
+        btnShowOfficers.UseVisualStyleBackColor = True
+        ' 
+        ' btnShowOthers
+        ' 
+        btnShowOthers.Font = New Font("Consolas", 9F)
+        btnShowOthers.Location = New Point(1249, 383)
+        btnShowOthers.Name = "btnShowOthers"
+        btnShowOthers.Size = New Size(171, 35)
+        btnShowOthers.TabIndex = 11
+        btnShowOthers.Text = "others"
+        btnShowOthers.UseVisualStyleBackColor = True
+        ' 
+        ' btnShowFirstYear
+        ' 
+        btnShowFirstYear.Font = New Font("Consolas", 9F)
+        btnShowFirstYear.Location = New Point(991, 260)
+        btnShowFirstYear.Name = "btnShowFirstYear"
+        btnShowFirstYear.Size = New Size(171, 35)
+        btnShowFirstYear.TabIndex = 12
+        btnShowFirstYear.Text = "1st Year"
+        btnShowFirstYear.UseVisualStyleBackColor = True
+        ' 
+        ' btnShowSecondYear
+        ' 
+        btnShowSecondYear.Font = New Font("Consolas", 9F)
+        btnShowSecondYear.Location = New Point(991, 301)
+        btnShowSecondYear.Name = "btnShowSecondYear"
+        btnShowSecondYear.Size = New Size(171, 35)
+        btnShowSecondYear.TabIndex = 13
+        btnShowSecondYear.Text = "2nd Year"
+        btnShowSecondYear.UseVisualStyleBackColor = True
+        ' 
+        ' btnShowThirdYear
+        ' 
+        btnShowThirdYear.Font = New Font("Consolas", 9F)
+        btnShowThirdYear.Location = New Point(991, 342)
+        btnShowThirdYear.Name = "btnShowThirdYear"
+        btnShowThirdYear.Size = New Size(171, 35)
+        btnShowThirdYear.TabIndex = 14
+        btnShowThirdYear.Text = "3rd Year"
+        btnShowThirdYear.UseVisualStyleBackColor = True
+        ' 
+        ' btnShowFourthYear
+        ' 
+        btnShowFourthYear.Font = New Font("Consolas", 9F)
+        btnShowFourthYear.Location = New Point(991, 383)
+        btnShowFourthYear.Name = "btnShowFourthYear"
+        btnShowFourthYear.Size = New Size(171, 35)
+        btnShowFourthYear.TabIndex = 15
+        btnShowFourthYear.Text = "4th Year"
+        btnShowFourthYear.UseVisualStyleBackColor = True
+        ' 
         ' adminForm
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1517, 890)
+        Controls.Add(btnShowFourthYear)
+        Controls.Add(btnShowThirdYear)
+        Controls.Add(btnShowSecondYear)
+        Controls.Add(btnShowFirstYear)
+        Controls.Add(btnShowOthers)
+        Controls.Add(btnShowOfficers)
+        Controls.Add(btnShowCollege)
+        Controls.Add(btnShowInstructors)
         Controls.Add(btnShowSuggestions)
         Controls.Add(btnShowFeedbacks)
         Controls.Add(btnShowComplaints)
@@ -138,4 +234,12 @@ Partial Class adminForm
     Friend WithEvents btnShowComplaints As Button
     Friend WithEvents btnShowFeedbacks As Button
     Friend WithEvents btnShowSuggestions As Button
+    Friend WithEvents btnShowInstructors As Button
+    Friend WithEvents btnShowCollege As Button
+    Friend WithEvents btnShowOfficers As Button
+    Friend WithEvents btnShowOthers As Button
+    Friend WithEvents btnShowFirstYear As Button
+    Friend WithEvents btnShowSecondYear As Button
+    Friend WithEvents btnShowThirdYear As Button
+    Friend WithEvents btnShowFourthYear As Button
 End Class

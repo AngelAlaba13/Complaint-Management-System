@@ -120,7 +120,7 @@ Partial Class Form1
         loginPanel.Controls.Add(LabelLoginID)
         loginPanel.Controls.Add(btnLogin)
         loginPanel.Controls.Add(Button1)
-        loginPanel.Location = New Point(121, 344)
+        loginPanel.Location = New Point(118, 94)
         loginPanel.Name = "loginPanel"
         loginPanel.Size = New Size(805, 456)
         loginPanel.TabIndex = 2
@@ -487,7 +487,7 @@ Partial Class Form1
         ' 
         userDashBoard.Controls.Add(createReviewPanel)
         userDashBoard.Controls.Add(viewButtonPanel)
-        userDashBoard.Location = New Point(85, 740)
+        userDashBoard.Location = New Point(12, 393)
         userDashBoard.Name = "userDashBoard"
         userDashBoard.Size = New Size(1525, 897)
         userDashBoard.TabIndex = 2
@@ -557,10 +557,10 @@ Partial Class Form1
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1517, 890)
+        Controls.Add(userDashBoard)
         Controls.Add(loginPanel)
         Controls.Add(userViewPanel)
         Controls.Add(reviewPanel)
-        Controls.Add(userDashBoard)
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
