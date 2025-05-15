@@ -6,21 +6,26 @@ Public Class Form1
     Private UserDataAdpt As New SqlDataAdapter
     Private MyCmdBld As New SqlCommandBuilder
     Private MyDataTbl As New DataTable
-    Private Mycn As New SqlConnection
+    Public Shared Mycn As New SqlConnection
     Private MyRowPosition As Integer = 0
     Private currentUserID As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Angel-connection
-        Mycn.ConnectionString = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
-        ''karl-connection
-        'Mycn.ConnectionString = "Data Source=LAPTOP-O85KOUQB\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
+        'Mycn.ConnectionString = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
+        'karl-connection
+        Mycn.ConnectionString = "Data Source=LAPTOP-O85KOUQB\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
         Mycn.Open()
 
         MyDataApt = New SqlDataAdapter("SELECT * FROM masterTable", Mycn)
         UserDataAdpt = New SqlDataAdapter("SELECT * FROM userTable", Mycn)
         MyCmdBld = New SqlCommandBuilder(MyDataApt)
         MyDataApt.Fill(MyDataTbl)
+
+        userDashBoard.Visible = False
+        userViewPanel.Visible = False
+        reviewPanel.Visible = False
+        txtLoginPass.PasswordChar = "*"c
 
         With MyDataTbl.Columns("ID")
             .AutoIncrement = True
@@ -113,10 +118,6 @@ Public Class Form1
         Catch ex As Exception
             MessageBox.Show("Error:" & ex.Message)
         End Try
-
-
-
-
     End Sub
 
     Private Sub btnSendComplaint_Click(sender As Object, e As EventArgs) Handles btnSendComplaint.Click
