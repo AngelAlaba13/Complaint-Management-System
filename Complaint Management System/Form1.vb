@@ -1,4 +1,5 @@
 ﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
+Imports Guna.UI2.WinForms
 Imports Microsoft.Data.SqlClient
 
 Public Class Form1
@@ -253,28 +254,26 @@ Public Class Form1
     '    End If
     'End Sub
 
+
     Private Sub LoadComplains()
         complainsPanel.Controls.Clear()
         Dim panelWidth As Integer = complainsPanel.ClientSize.Width - 25
 
-
-
-        Dim query As String = "SELECT StudentID, ComplaintReceiver, ComplaintType, Details FROM masterTable WHERE StudentID = @StudentID"
+        Dim query As String = "SELECT ID, ComplaintReceiver, ComplaintType, Details FROM masterTable WHERE StudentID = @StudentID"
         Try
             Using connection As SqlConnection = DatabaseModule.GetConnection()
                 Using command As New SqlCommand(query, connection)
                     command.Parameters.AddWithValue("@StudentID", currentUserID)
-                    DatabaseModule.OpenConnection(connection) ' <-- Open the connection here!
+                    DatabaseModule.OpenConnection(connection)
                     Using reader As SqlDataReader = command.ExecuteReader()
-                        'Dim yOffset As Integer = 0
                         While reader.Read()
+                            Dim reviewId As Integer = Convert.ToInt32(reader("ID"))
                             Dim itemsPanel As New Panel With {
                             .Width = panelWidth,
                             .Height = 115,
-                            .BackColor = Color.White,
+                            .BackColor = Color.FromArgb(255, 237, 160),
                             .BorderStyle = BorderStyle.FixedSingle
                         }
-
 
                             Dim lblComplaintReceiver As New Label With {
                             .Text = reader("ComplaintReceiver").ToString(),
@@ -297,22 +296,95 @@ Public Class Form1
                             .Font = New Font("Segoe UI", 10),
                             .ForeColor = Color.Black,
                             .Location = New Point(10, 75),
-                            .Size = New Size(itemsPanel.Width - 20, 40),
+                            .Size = New Size(itemsPanel.Width - 220, 40),
                             .AutoEllipsis = True
                         }
+
+                            ' Delete Button
+                            Dim btnDelete As New Button With {
+                            .Text = "Delete",
+                            .BackColor = Color.FromArgb(220, 53, 69),
+                            .ForeColor = Color.White,
+                            .Location = New Point(itemsPanel.Width - 190, 35),
+                            .Size = New Size(80, 35),
+                            .Tag = reviewId
+                        }
+                            AddHandler btnDelete.Click, AddressOf DeleteReview_Click
+
+                            ' Edit Button
+                            Dim btnEdit As New Button With {
+                            .Text = "Edit",
+                            .BackColor = Color.FromArgb(255, 193, 7),
+                            .ForeColor = Color.Black,
+                            .Location = New Point(itemsPanel.Width - 100, 35),
+                            .Size = New Size(80, 35),
+                            .Tag = New With {Key .ID = reviewId, .Details = reader("Details").ToString()}
+                        }
+                            AddHandler btnEdit.Click, AddressOf EditReview_Click
 
                             itemsPanel.Controls.Add(lblComplaintReceiver)
                             itemsPanel.Controls.Add(lblComplaintType)
                             itemsPanel.Controls.Add(lblDetails)
+                            itemsPanel.Controls.Add(btnDelete)
+                            itemsPanel.Controls.Add(btnEdit)
 
                             complainsPanel.Controls.Add(itemsPanel)
-                            'yOffset += itemsPanel.Height + 10
                         End While
                     End Using
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error registration: " & ex.Message)
+            MessageBox.Show("Error loading reviews: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub DeleteReview_Click(sender As Object, e As EventArgs)
+        Dim btn As Button = CType(sender, Button)
+        Dim reviewId As Integer = CInt(btn.Tag)
+        Dim result = MessageBox.Show("Are you sure you want to delete this review?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If result = DialogResult.Yes Then
+            Dim query As String = "DELETE FROM masterTable WHERE ID = @ID"
+            Try
+                Using connection As SqlConnection = DatabaseModule.GetConnection()
+                    Using command As New SqlCommand(query, connection)
+                        command.Parameters.AddWithValue("@ID", reviewId)
+                        DatabaseModule.OpenConnection(connection)
+                        command.ExecuteNonQuery()
+                    End Using
+                End Using
+                MessageBox.Show("Review deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadComplains()
+            Catch ex As Exception
+                MessageBox.Show("Error deleting review: " & ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub EditReview_Click(sender As Object, e As EventArgs)
+        Dim btn As Button = CType(sender, Button)
+        Dim tagObj = btn.Tag
+        Dim reviewId As Integer = tagObj.ID
+        Dim oldDetails As String = tagObj.Details
+
+        Dim newDetails As String = InputBox("Edit your review details:", "Edit Review", oldDetails)
+        If String.IsNullOrWhiteSpace(newDetails) OrElse newDetails = oldDetails Then
+            Return
+        End If
+
+        Dim query As String = "UPDATE masterTable SET Details = @Details WHERE ID = @ID"
+        Try
+            Using connection As SqlConnection = DatabaseModule.GetConnection()
+                Using command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@Details", newDetails)
+                    command.Parameters.AddWithValue("@ID", reviewId)
+                    DatabaseModule.OpenConnection(connection)
+                    command.ExecuteNonQuery()
+                End Using
+            End Using
+            MessageBox.Show("Review updated successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            LoadComplains()
+        Catch ex As Exception
+            MessageBox.Show("Error updating review: " & ex.Message)
         End Try
     End Sub
 
@@ -408,5 +480,49 @@ Public Class Form1
 
     Private Sub itemsPanel_Paint(sender As Object, e As PaintEventArgs) Handles itemsPanel.Paint
 
+    End Sub
+
+    Private Sub LabelLoginDont_Click(sender As Object, e As EventArgs) Handles LabelLoginDont.Click
+
+    End Sub
+
+    Private Sub txtYearLvl_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtYearLvl.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub txtInstructor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtInstructor.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
+
+    End Sub
+
+    Private Sub complainsPanel_Paint(sender As Object, e As PaintEventArgs) Handles complainsPanel.Paint
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub viewButtonPanel_Paint(sender As Object, e As PaintEventArgs) Handles viewButtonPanel.Paint
+
+    End Sub
+
+    Private Sub Label13_Click(sender As Object, e As EventArgs) Handles Label13.Click
+        ' Hide all user panels
+        userDashBoard.Visible = False
+        userViewPanel.Visible = False
+        reviewPanel.Visible = False
+
+        ' Show login panel
+        loginPanel.Visible = True
+
+        ' Optionally clear login fields and current user
+        txtLoginID.Clear()
+        txtLoginPass.Clear()
+        currentUserID = Nothing
+
+        MessageBox.Show("You have been logged out.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 End Class
