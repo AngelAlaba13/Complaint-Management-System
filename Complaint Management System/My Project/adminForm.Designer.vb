@@ -22,8 +22,7 @@ Partial Class adminForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        TextBox1 = New TextBox()
-        btnSearch = New Button()
+        txtBoxSearch = New TextBox()
         DataGridView1 = New DataGridView()
         Label7 = New Label()
         Label1 = New Label()
@@ -38,26 +37,18 @@ Partial Class adminForm
         btnShowSecondYear = New Button()
         btnShowThirdYear = New Button()
         btnShowFourthYear = New Button()
+        Label2 = New Label()
+        ComboBox1 = New ComboBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' TextBox1
+        ' txtBoxSearch
         ' 
-        TextBox1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox1.Location = New Point(74, 166)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(642, 34)
-        TextBox1.TabIndex = 0
-        ' 
-        ' btnSearch
-        ' 
-        btnSearch.Font = New Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnSearch.Location = New Point(751, 162)
-        btnSearch.Name = "btnSearch"
-        btnSearch.Size = New Size(149, 47)
-        btnSearch.TabIndex = 1
-        btnSearch.Text = "Search"
-        btnSearch.UseVisualStyleBackColor = True
+        txtBoxSearch.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtBoxSearch.Location = New Point(219, 166)
+        txtBoxSearch.Name = "txtBoxSearch"
+        txtBoxSearch.Size = New Size(655, 34)
+        txtBoxSearch.TabIndex = 0
         ' 
         ' DataGridView1
         ' 
@@ -198,11 +189,32 @@ Partial Class adminForm
         btnShowFourthYear.Text = "4th Year"
         btnShowFourthYear.UseVisualStyleBackColor = True
         ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(92, 159)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(108, 41)
+        Label2.TabIndex = 16
+        Label2.Text = "Search"
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.Font = New Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Location = New Point(991, 477)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(171, 33)
+        ComboBox1.TabIndex = 17
+        ' 
         ' adminForm
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1517, 890)
+        Controls.Add(ComboBox1)
+        Controls.Add(Label2)
         Controls.Add(btnShowFourthYear)
         Controls.Add(btnShowThirdYear)
         Controls.Add(btnShowSecondYear)
@@ -217,8 +229,7 @@ Partial Class adminForm
         Controls.Add(Label1)
         Controls.Add(Label7)
         Controls.Add(DataGridView1)
-        Controls.Add(btnSearch)
-        Controls.Add(TextBox1)
+        Controls.Add(txtBoxSearch)
         Name = "adminForm"
         Text = "adminForm"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
@@ -226,8 +237,7 @@ Partial Class adminForm
         PerformLayout()
     End Sub
 
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtBoxSearch As TextBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label7 As Label
     Friend WithEvents Label1 As Label
@@ -242,4 +252,6 @@ Partial Class adminForm
     Friend WithEvents btnShowSecondYear As Button
     Friend WithEvents btnShowThirdYear As Button
     Friend WithEvents btnShowFourthYear As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
