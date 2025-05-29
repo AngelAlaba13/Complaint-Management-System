@@ -153,18 +153,19 @@ Public Class adminForm
         End Using
     End Sub
 
-    Private Sub btnShowSecondYear_Click(sender As Object, e As EventArgs) Handles btnShowSecondYear.Click
+    Private Sub btnShowSecondYear_Click(sender As Object, e As EventArgs)
         DataGridView1.DataSource = Nothing
-        Dim query As String = "SELECT StudentID, YearLevel, Block, ComplaintReceiver, Instructor, ComplaintType, Details " &
+        Dim query = "SELECT StudentID, YearLevel, Block, ComplaintReceiver, Instructor, ComplaintType, Details " &
                                "FROM masterTable " &
                                "WHERE YearLevel = '2nd Year';"
 
-        Using connection As SqlConnection = DatabaseModule.GetConnection()
+        Using connection = GetConnection()
+
             Using command As New SqlCommand(query, connection)
                 Try
-                    DatabaseModule.OpenConnection(connection)
+                    OpenConnection(connection)
                     Using adapter As New SqlDataAdapter(command)
-                        Dim dataTable As New DataTable()
+                        Dim dataTable As New DataTable
                         adapter.Fill(dataTable)
                         If dataTable.Rows.Count = 0 Then
                             MessageBox.Show("No records found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -186,24 +187,25 @@ Public Class adminForm
                     MessageBox.Show("Error loading items: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 Finally
-                    DatabaseModule.CloseConnection(connection)
+                    CloseConnection(connection)
                 End Try
             End Using
         End Using
     End Sub
 
-    Private Sub btnShowThirdYear_Click(sender As Object, e As EventArgs) Handles btnShowThirdYear.Click
+    Private Sub btnShowThirdYear_Click(sender As Object, e As EventArgs)
         DataGridView1.DataSource = Nothing
-        Dim query As String = "SELECT StudentID, YearLevel, Block, ComplaintReceiver, Instructor, ComplaintType, Details " &
+        Dim query = "SELECT StudentID, YearLevel, Block, ComplaintReceiver, Instructor, ComplaintType, Details " &
                                "FROM masterTable " &
                                "WHERE YearLevel = '3rd Year';"
 
-        Using connection As SqlConnection = DatabaseModule.GetConnection()
+        Using connection = GetConnection()
+
             Using command As New SqlCommand(query, connection)
                 Try
-                    DatabaseModule.OpenConnection(connection)
+                    OpenConnection(connection)
                     Using adapter As New SqlDataAdapter(command)
-                        Dim dataTable As New DataTable()
+                        Dim dataTable As New DataTable
                         adapter.Fill(dataTable)
                         If dataTable.Rows.Count = 0 Then
                             MessageBox.Show("No records found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -225,24 +227,25 @@ Public Class adminForm
                     MessageBox.Show("Error loading items: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 Finally
-                    DatabaseModule.CloseConnection(connection)
+                    CloseConnection(connection)
                 End Try
             End Using
         End Using
     End Sub
 
-    Private Sub btnShowFourthYear_Click(sender As Object, e As EventArgs) Handles btnShowFourthYear.Click
+    Private Sub btnShowFourthYear_Click(sender As Object, e As EventArgs)
         DataGridView1.DataSource = Nothing
-        Dim query As String = "SELECT StudentID, YearLevel, Block, ComplaintReceiver, Instructor, ComplaintType, Details " &
+        Dim query = "SELECT StudentID, YearLevel, Block, ComplaintReceiver, Instructor, ComplaintType, Details " &
                                "FROM masterTable " &
                                "WHERE YearLevel = '4th Year';"
 
-        Using connection As SqlConnection = DatabaseModule.GetConnection()
+        Using connection = GetConnection()
+
             Using command As New SqlCommand(query, connection)
                 Try
-                    DatabaseModule.OpenConnection(connection)
+                    OpenConnection(connection)
                     Using adapter As New SqlDataAdapter(command)
-                        Dim dataTable As New DataTable()
+                        Dim dataTable As New DataTable
                         adapter.Fill(dataTable)
                         If dataTable.Rows.Count = 0 Then
                             MessageBox.Show("No records found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -264,7 +267,7 @@ Public Class adminForm
                     MessageBox.Show("Error loading items: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 Finally
-                    DatabaseModule.CloseConnection(connection)
+                    CloseConnection(connection)
                 End Try
             End Using
         End Using
@@ -577,5 +580,22 @@ Public Class adminForm
             End Using
 
         End Using
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub Label13_Click(sender As Object, e As EventArgs) Handles Label13.Click
+        ' Show the login form
+        Dim loginForm As New Form1()
+        loginForm.Show()
+
+        ' Optionally clear any admin session data here
+
+        ' Hide or close the admin form
+        Me.Hide()
+
+        MessageBox.Show("You have been logged out.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 End Class

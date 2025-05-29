@@ -14,7 +14,7 @@ Partial Class registrationForm
         txtRegisterPass.PasswordChar = "*"c
 
 
-        Me.btnRegisterConfirm.Text = "&Save"
+        'Me.btnRegisterConfirm.Text = "&Save"
 
 
     End Sub
@@ -26,7 +26,7 @@ Partial Class registrationForm
 
     End Sub
 
-    Private Sub btnRegisterConfirm_Click(sender As Object, e As EventArgs) Handles btnRegisterConfirm.Click
+    Private Sub btnRegisterConfirm_Click(sender As Object, e As EventArgs)
         'Try
 
         '    ' Load data from the userTable into the DataTable
@@ -61,10 +61,11 @@ Partial Class registrationForm
         '    MessageBox.Show("Error: " & ex.Message)
         'End Try
 
-        Dim insertQuery As String = "INSERT INTO userTable(StudentID, Name, YearLevel, Block, Role, Password) " &
+        Dim insertQuery = "INSERT INTO userTable(StudentID, Name, YearLevel, Block, Role, Password) " &
                                 "VALUES (@StudentID, @Name, @YearLevel, @Block, @Role, @Password)"
         Try
-            Using connection As SqlConnection = DatabaseModule.GetConnection()
+            Using connection = GetConnection()
+
                 Using command As New SqlCommand(insertQuery, connection)
                     'command.Parameters.AddWithValue("@faculty_id", getItemID)
                     command.Parameters.AddWithValue("@StudentID", txtRegisterID.Text)
@@ -79,7 +80,7 @@ Partial Class registrationForm
 
             End Using
             MessageBox.Show("Registration successful!")
-            Me.Hide()
+            Hide()
             Form1.Show()
             Form1.Focus()
         Catch ex As Exception
@@ -88,4 +89,10 @@ Partial Class registrationForm
 
 
     End Sub
+
+    Private Sub RegisterLabelBlock_Click(sender As Object, e As EventArgs) Handles RegisterLabelBlock.Click
+
+    End Sub
+
+
 End Class
