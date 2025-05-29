@@ -2,42 +2,45 @@
 
 Public Class Form1
 
-    Private MyDataApt As New SqlDataAdapter
-    Private UserDataAdpt As New SqlDataAdapter
-    Private MyCmdBld As New SqlCommandBuilder
-    Private MyDataTbl As New DataTable
-    Public Shared Mycn As New SqlConnection
-    Private MyRowPosition As Integer = 0
-    Private currentUserID As String
+    'Private MyDataApt As New SqlDataAdapter
+    'Private UserDataAdpt As New SqlDataAdapter
+    'Private MyCmdBld As New SqlCommandBuilder
+    'Private MyDataTbl As New DataTable
+    'Public Shared Mycn As New SqlConnection
+    'Private MyRowPosition As Integer = 0
+    'Private currentUserID As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Angel-connection
-        Mycn.ConnectionString = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
-        'karl-connection
-        'Mycn.ConnectionString = "Data Source=LAPTOP-O85KOUQB\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
-        Mycn.Open()
 
-        MyDataApt = New SqlDataAdapter("SELECT * FROM masterTable", Mycn)
-        UserDataAdpt = New SqlDataAdapter("SELECT * FROM userTable", Mycn)
-        MyCmdBld = New SqlCommandBuilder(MyDataApt)
-        MyDataApt.Fill(MyDataTbl)
+        ''Angel-connection
+        'Mycn.ConnectionString = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
+        ''karl-connection
+        ''Mycn.ConnectionString = "Data Source=LAPTOP-O85KOUQB\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
+        'Mycn.Open()
+
+        'MyDataApt = New SqlDataAdapter("SELECT * FROM masterTable", Mycn)
+        'UserDataAdpt = New SqlDataAdapter("SELECT * FROM userTable", Mycn)
+        'MyCmdBld = New SqlCommandBuilder(MyDataApt)
+        'MyDataApt.Fill(MyDataTbl)
+
+
 
         userDashBoard.Visible = False
         userViewPanel.Visible = False
         reviewPanel.Visible = False
         txtLoginPass.PasswordChar = "*"c
 
-        With MyDataTbl.Columns("ID")
-            .AutoIncrement = True
-            .AutoIncrementSeed = -1
-            .AutoIncrementStep = -1
-            .ReadOnly = True
-        End With
+        'With MyDataTbl.Columns("ID")
+        '    .AutoIncrement = True
+        '    .AutoIncrementSeed = -1
+        '    .AutoIncrementStep = -1
+        '    .ReadOnly = True
+        'End With
 
-        Dim MyDataRow As DataRow = MyDataTbl.Rows(5)
+        'Dim MyDataRow As DataRow = MyDataTbl.Rows(5)
 
-        yearLevelDB.Text = MyDataRow("Instructor").ToString()
-        blockDB.Text = MyDataRow("Block").ToString()
+        'yearLevelDB.Text = MyDataRow("Instructor").ToString()
+        'blockDB.Text = MyDataRow("Block").ToString()
 
         txtYearLvl.Items.Add("1st Year")
         txtYearLvl.Items.Add("2nd Year")
@@ -77,47 +80,53 @@ Public Class Form1
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        Dim username As String = txtLoginID.Text.Trim()
+        Dim Password As String = txtLoginPass.Text.Trim()
 
-        Dim loginBld = New SqlCommandBuilder(UserDataAdpt)
+        If String.IsNullOrEmpty(username) OrElse String.IsNullOrEmpty(Password) Then
+            MessageBox.Show("Please enter both Student ID and Password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
 
-        Dim username As String = txtLoginID.Text
-        Dim Password As String = txtLoginPass.Text
+        Dim loginquery As String = "SELECT Role FROM userTable WHERE StudentID = @StudentID AND [Password] = @Password"
+        Using Connection As SqlConnection = DatabaseModule.GetConnection()
+            Using command As New SqlCommand(loginquery, Connection)
+                command.Parameters.AddWithValue("@StudentID", username)
+                command.Parameters.AddWithValue("@Password", Password)
 
-        Dim query As String = "Select * from userTable where StudentID = '" & username & "' AND [Password] = '" & Password & "'"
-        Dim adapter As New SqlDataAdapter(query, Mycn)
+                Try
+                    DatabaseModule.OpenConnection(Connection)
+                    Dim roleObj As Object = command.ExecuteScalar()
+                    If roleObj IsNot Nothing Then
+                        Dim role As String = roleObj.ToString().ToLower()
 
-        Dim table As New DataTable()
+                        If role = "student" Then
+                            loginPanel.Visible = False
+                            userViewPanel.Visible = False
+                            userDashBoard.Visible = True
+                            reviewPanel.Visible = False
 
-        Try
-            adapter.Fill(table)
+                            MessageBox.Show("Login Successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        ElseIf (role = "admin") Then
+                            loginPanel.Visible = False
+                            adminForm.Show()
+                            Me.Hide()
+                            adminForm.Focus()
+                        End If
 
-            Dim role As String = table.Rows(0)("Role").ToString()
+                    Else
+                        MessageBox.Show("Invalid Student ID or Password.")
+                    End If
 
+                Catch ex As Exception
+                    MessageBox.Show("Error: " & ex.Message)
+                Finally
+                    DatabaseModule.CloseConnection(Connection)
+                End Try
 
-            If table.Rows.Count > 0 Then
-                If role = "student" Then
-                    loginPanel.Visible = False
-                    userViewPanel.Visible = False
-                    userDashBoard.Visible = True
-                    reviewPanel.Visible = False
+            End Using
+        End Using
 
-                    MessageBox.Show("Login Successful.")
-                ElseIf (role = "admin") Then
-                    loginPanel.Visible = False
-                    adminForm.Show()
-                    Me.Hide()
-                    adminForm.Focus()
-                    MessageBox.Show("Paki modify ko ani nga part kay basin dli mao ang admin form nga na show and other stuff nga nagka idk wtf?")
-
-                End If
-
-            Else
-                MessageBox.Show("Invalid Student ID or Password.")
-            End If
-
-        Catch ex As Exception
-            MessageBox.Show("Error:" & ex.Message)
-        End Try
     End Sub
 
     Private Sub btnSendComplaint_Click(sender As Object, e As EventArgs) Handles btnSendComplaint.Click
@@ -165,23 +174,23 @@ Public Class Form1
                 Exit Sub
             End If
 
-            Dim MyNewRow As DataRow = MyDataTbl.NewRow()
-            MyDataTbl.Rows.Add(MyNewRow)
-            MyRowPosition = MyDataTbl.Rows.Count - 1
+            'Dim MyNewRow As DataRow = MyDataTbl.NewRow()
+            'MyDataTbl.Rows.Add(MyNewRow)
+            'MyRowPosition = MyDataTbl.Rows.Count - 1
 
-            MyDataTbl.Rows(MyRowPosition)("StudentID") = txtStudentID.Text
-            MyDataTbl.Rows(MyRowPosition)("YearLevel") = txtYearLvl.Text
-            MyDataTbl.Rows(MyRowPosition)("Block") = txtBlock.Text
-            MyDataTbl.Rows(MyRowPosition)("ComplaintReceiver") = txtTarget.Text
-            MyDataTbl.Rows(MyRowPosition)("ComplaintType") = txtComplaint.Text
-            MyDataTbl.Rows(MyRowPosition)("Details") = txtContent.Text
-            If txtTarget.Text = "to Instructor" Then
-                MyDataTbl.Rows(MyRowPosition)("Instructor") = txtInstructor.Text
-            Else
-                MyDataTbl.Rows(MyRowPosition)("Instructor") = DBNull.Value
-            End If
+            'MyDataTbl.Rows(MyRowPosition)("StudentID") = txtStudentID.Text
+            'MyDataTbl.Rows(MyRowPosition)("YearLevel") = txtYearLvl.Text
+            'MyDataTbl.Rows(MyRowPosition)("Block") = txtBlock.Text
+            'MyDataTbl.Rows(MyRowPosition)("ComplaintReceiver") = txtTarget.Text
+            'MyDataTbl.Rows(MyRowPosition)("ComplaintType") = txtComplaint.Text
+            'MyDataTbl.Rows(MyRowPosition)("Details") = txtContent.Text
+            'If txtTarget.Text = "to Instructor" Then
+            '    MyDataTbl.Rows(MyRowPosition)("Instructor") = txtInstructor.Text
+            'Else
+            '    MyDataTbl.Rows(MyRowPosition)("Instructor") = DBNull.Value
+            'End If
 
-            MyDataApt.Update(MyDataTbl)
+            'MyDataApt.Update(MyDataTbl)
 
             txtStudentID.Clear()
             txtYearLvl.SelectedIndex = -1
@@ -194,7 +203,7 @@ Public Class Form1
 
             Dim result As DialogResult = MessageBox.Show("Your complaint has been recorded successfully. Do you want to view your response?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
             If result = DialogResult.Yes Then
-                currentUserID = MyDataTbl.Rows(MyRowPosition)("StudentID").ToString()
+                'currentUserID = MyDataTbl.Rows(MyRowPosition)("StudentID").ToString()
 
                 loginPanel.Visible = False
                 reviewPanel.Visible = False
@@ -216,57 +225,57 @@ Public Class Form1
     Private Sub LoadComplains()
         complainsPanel.Controls.Clear()
 
-        Dim query As String = "SELECT ID, ComplaintReceiver, ComplaintType, Details FROM masterTable WHERE StudentID = @id"
-        Using cmd As New SqlCommand(query, Mycn)
-            cmd.Parameters.AddWithValue("@id", currentUserID)
+        'Dim query As String = "SELECT ID, ComplaintReceiver, ComplaintType, Details FROM masterTable WHERE StudentID = @id"
+        'Using cmd As New SqlCommand(query, Mycn)
+        '    cmd.Parameters.AddWithValue("@id", currentUserID)
 
-            Using reader As SqlDataReader = cmd.ExecuteReader()
-                While reader.Read()
-                    Dim itemsPanel As New Panel With {
-                        .Width = complainsPanel.Width - 20,
-                        .Height = 115,
-                        .BackColor = Color.White,
-                    .BorderStyle = BorderStyle.FixedSingle,
-                    .Margin = New Padding(5)
-                    }
+        'Using reader As SqlDataReader = cmd.ExecuteReader()
+        'While reader.Read()
+        '            Dim itemsPanel As New Panel With {
+        '                .Width = complainsPanel.Width - 20,
+        '                .Height = 115,
+        '                .BackColor = Color.White,
+        '            .BorderStyle = BorderStyle.FixedSingle,
+        '            .Margin = New Padding(5)
+        '            }
 
-                    Dim lblComplaintReceiver As New Label With {
-                        .Text = reader("ComplaintReceiver").ToString(),
-                        .Font = New Font("Segoe UI", 15, FontStyle.Bold),
-                        .ForeColor = Color.Black,
-                        .Location = New Point(10, 5),
-                        .AutoSize = True
-                        }
+        '            Dim lblComplaintReceiver As New Label With {
+        '                .Text = reader("ComplaintReceiver").ToString(),
+        '                .Font = New Font("Segoe UI", 15, FontStyle.Bold),
+        '                .ForeColor = Color.Black,
+        '                .Location = New Point(10, 5),
+        '                .AutoSize = True
+        '                }
 
-                    Dim lblComplaintType As New Label With {
-                    .Text = reader("ComplaintType").ToString(),
-                    .Font = New Font("Segoe UI", 11),
-                    .ForeColor = Color.Black,
-                    .Location = New Point(12, 40),
-                    .AutoSize = True
-                }
-
-
-                    Dim lblDetails As New Label With {
-                        .Text = reader("Details").ToString(),
-                        .Font = New Font("Segoe UI", 10),
-                        .ForeColor = Color.Black,
-                        .Location = New Point(10, 75),
-                        .Size = New Size(itemsPanel.Width - 20, 40),
-                        .AutoEllipsis = True
-                    }
-
-                    itemsPanel.Controls.Add(lblComplaintReceiver)
-                    itemsPanel.Controls.Add(lblComplaintType)
-                    itemsPanel.Controls.Add(lblDetails)
-
-                    complainsPanel.Controls.Add(itemsPanel)
+        '            Dim lblComplaintType As New Label With {
+        '            .Text = reader("ComplaintType").ToString(),
+        '            .Font = New Font("Segoe UI", 11),
+        '            .ForeColor = Color.Black,
+        '            .Location = New Point(12, 40),
+        '            .AutoSize = True
+        '        }
 
 
+        '            Dim lblDetails As New Label With {
+        '                .Text = reader("Details").ToString(),
+        '                .Font = New Font("Segoe UI", 10),
+        '                .ForeColor = Color.Black,
+        '                .Location = New Point(10, 75),
+        '                .Size = New Size(itemsPanel.Width - 20, 40),
+        '                .AutoEllipsis = True
+        '            }
 
-                End While
-            End Using
-        End Using
+        '            itemsPanel.Controls.Add(lblComplaintReceiver)
+        '            itemsPanel.Controls.Add(lblComplaintType)
+        '            itemsPanel.Controls.Add(lblDetails)
+
+        '            complainsPanel.Controls.Add(itemsPanel)
+
+
+
+        '        End While
+        '    End Using
+        'End Using
     End Sub
 
     Private Sub txtTarget_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtTarget.SelectedIndexChanged
@@ -345,5 +354,10 @@ Public Class Form1
         Dim registrationForm As New registrationForm
         registrationForm.Show()
         Hide()
+
+        'Dim adminForm As New adminForm
+        'adminForm.Show()
+        'Hide()
     End Sub
+
 End Class
