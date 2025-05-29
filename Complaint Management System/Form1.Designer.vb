@@ -110,17 +110,15 @@ Partial Class Form1
         loginPanel.Controls.Add(LabelLoginDont)
         loginPanel.Controls.Add(LabelLoginPass)
         loginPanel.Controls.Add(LabelLoginID)
-
         loginPanel.Location = New Point(-2, -3)
         loginPanel.Name = "loginPanel"
         loginPanel.Size = New Size(1527, 894)
-
         loginPanel.TabIndex = 2
         ' 
         ' Label11
         ' 
         Label11.AutoSize = True
-        Label11.Font = New Font("Arial Black", 45F, FontStyle.Bold)
+        Label11.Font = New Font("Arial Black", 45.0F, FontStyle.Bold)
         Label11.ForeColor = Color.White
         Label11.Location = New Point(196, 437)
         Label11.Name = "Label11"
@@ -140,7 +138,7 @@ Partial Class Form1
         Button1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         Button1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         Button1.FillColor = Color.FromArgb(CByte(207), CByte(176), CByte(49))
-        Button1.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        Button1.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
         Button1.ForeColor = Color.White
         Button1.Location = New Point(1202, 570)
         Button1.Name = "Button1"
@@ -161,7 +159,7 @@ Partial Class Form1
         btnLogin.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnLogin.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnLogin.FillColor = Color.FromArgb(CByte(207), CByte(176), CByte(49))
-        btnLogin.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        btnLogin.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
         btnLogin.ForeColor = Color.White
         btnLogin.Location = New Point(1045, 570)
         btnLogin.Name = "btnLogin"
@@ -217,7 +215,7 @@ Partial Class Form1
         ' LabelLoginTitle
         ' 
         LabelLoginTitle.AutoSize = True
-        LabelLoginTitle.Font = New Font("Arial Black", 55F, FontStyle.Bold)
+        LabelLoginTitle.Font = New Font("Arial Black", 55.0F, FontStyle.Bold)
         LabelLoginTitle.ForeColor = Color.White
         LabelLoginTitle.Location = New Point(126, 335)
         LabelLoginTitle.Name = "LabelLoginTitle"
@@ -230,7 +228,7 @@ Partial Class Form1
         LabelLoginRegister.AutoSize = True
         LabelLoginRegister.BackColor = Color.FromArgb(CByte(56), CByte(20), CByte(137))
         LabelLoginRegister.Cursor = Cursors.Hand
-        LabelLoginRegister.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold Or FontStyle.Underline)
+        LabelLoginRegister.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold Or FontStyle.Underline)
         LabelLoginRegister.ForeColor = Color.LightSkyBlue
         LabelLoginRegister.Location = New Point(1177, 446)
         LabelLoginRegister.Name = "LabelLoginRegister"
@@ -242,7 +240,7 @@ Partial Class Form1
         ' 
         LabelLoginDont.AutoSize = True
         LabelLoginDont.BackColor = Color.FromArgb(CByte(56), CByte(20), CByte(137))
-        LabelLoginDont.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
+        LabelLoginDont.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold)
         LabelLoginDont.ForeColor = Color.White
         LabelLoginDont.Location = New Point(953, 446)
         LabelLoginDont.Name = "LabelLoginDont"
@@ -304,7 +302,7 @@ Partial Class Form1
         ' Label12
         ' 
         Label12.AutoSize = True
-        Label12.Font = New Font("Arial Rounded MT Bold", 15F)
+        Label12.Font = New Font("Arial Rounded MT Bold", 15.0F)
         Label12.ForeColor = Color.Transparent
         Label12.Location = New Point(980, 166)
         Label12.Name = "Label12"
@@ -315,7 +313,7 @@ Partial Class Form1
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Font = New Font("Arial Rounded MT Bold", 15F)
+        Label8.Font = New Font("Arial Rounded MT Bold", 15.0F)
         Label8.ForeColor = Color.Transparent
         Label8.Location = New Point(282, 166)
         Label8.Name = "Label8"
@@ -332,7 +330,7 @@ Partial Class Form1
         btnSendComplaint.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnSendComplaint.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnSendComplaint.FillColor = Color.FromArgb(CByte(207), CByte(176), CByte(49))
-        btnSendComplaint.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        btnSendComplaint.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
         btnSendComplaint.ForeColor = Color.White
         btnSendComplaint.Location = New Point(1224, 748)
         btnSendComplaint.Name = "btnSendComplaint"
@@ -353,7 +351,7 @@ Partial Class Form1
         ' 
         ' txtInstructor
         ' 
-        txtInstructor.Font = New Font("Segoe UI", 12F)
+        txtInstructor.Font = New Font("Segoe UI", 12.0F)
         txtInstructor.FormattingEnabled = True
         txtInstructor.Location = New Point(158, 602)
         txtInstructor.Name = "txtInstructor"
@@ -375,7 +373,7 @@ Partial Class Form1
         ' 
         ' txtBlock
         ' 
-        txtBlock.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtBlock.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtBlock.FormattingEnabled = True
         txtBlock.Location = New Point(158, 500)
         txtBlock.Name = "txtBlock"
@@ -384,7 +382,7 @@ Partial Class Form1
         ' 
         ' txtYearLvl
         ' 
-        txtYearLvl.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtYearLvl.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtYearLvl.FormattingEnabled = True
         txtYearLvl.Location = New Point(158, 398)
         txtYearLvl.Name = "txtYearLvl"
@@ -393,7 +391,7 @@ Partial Class Form1
         ' 
         ' txtStudentID
         ' 
-        txtStudentID.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtStudentID.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtStudentID.Location = New Point(158, 304)
         txtStudentID.Name = "txtStudentID"
         txtStudentID.Size = New Size(481, 34)
@@ -412,7 +410,7 @@ Partial Class Form1
         ' 
         ' txtComplaint
         ' 
-        txtComplaint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtComplaint.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtComplaint.FormattingEnabled = True
         txtComplaint.Location = New Point(792, 390)
         txtComplaint.Name = "txtComplaint"
@@ -421,7 +419,7 @@ Partial Class Form1
         ' 
         ' txtTarget
         ' 
-        txtTarget.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtTarget.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtTarget.FormattingEnabled = True
         txtTarget.Location = New Point(792, 294)
         txtTarget.Name = "txtTarget"
@@ -508,9 +506,7 @@ Partial Class Form1
         userDashBoard.Controls.Add(Panel1)
         userDashBoard.Controls.Add(createReviewPanel)
         userDashBoard.Controls.Add(viewButtonPanel)
-
-        userDashBoard.Location = New Point(-3, -5)
-
+        userDashBoard.Location = New Point(3, 460)
         userDashBoard.Name = "userDashBoard"
         userDashBoard.Size = New Size(1525, 897)
         userDashBoard.TabIndex = 2
@@ -666,15 +662,15 @@ Partial Class Form1
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1517, 890)
-
         Controls.Add(userViewPanel)
         Controls.Add(reviewPanel)
         Controls.Add(userDashBoard)
+        Controls.Add(reviewPanel)
+        Controls.Add(userViewPanel)
         Controls.Add(loginPanel)
-
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"

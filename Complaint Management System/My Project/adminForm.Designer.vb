@@ -52,12 +52,9 @@ Partial Class adminForm
         Panel1 = New Panel()
         Label13 = New Label()
         PictureBox1 = New PictureBox()
-        ContextMenuStrip1 = New ContextMenuStrip(components)
-        deleteToolStrip = New ToolStripMenuItem()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
-        ContextMenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
         ' txtBoxSearch
@@ -331,19 +328,6 @@ Partial Class adminForm
         PictureBox1.TabIndex = 2
         PictureBox1.TabStop = False
         ' 
-        ' ContextMenuStrip1
-        ' 
-        ContextMenuStrip1.ImageScalingSize = New Size(20, 20)
-        ContextMenuStrip1.Items.AddRange(New ToolStripItem() {deleteToolStrip})
-        ContextMenuStrip1.Name = "ContextMenuStrip1"
-        ContextMenuStrip1.Size = New Size(211, 56)
-        ' 
-        ' deleteToolStrip
-        ' 
-        deleteToolStrip.Name = "deleteToolStrip"
-        deleteToolStrip.Size = New Size(210, 24)
-        deleteToolStrip.Text = "Delete"
-        ' 
         ' adminForm
         ' 
         AutoScaleDimensions = New SizeF(8.0F, 20.0F)
@@ -375,7 +359,6 @@ Partial Class adminForm
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
-        ContextMenuStrip1.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -401,6 +384,4 @@ Partial Class adminForm
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label13 As Label
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
-    Friend WithEvents deleteToolStrip As ToolStripMenuItem
 End Class
