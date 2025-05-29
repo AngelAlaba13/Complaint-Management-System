@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class adminForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,8 @@ Partial Class adminForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        components = New ComponentModel.Container()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -63,7 +62,7 @@ Partial Class adminForm
         ' 
         ' txtBoxSearch
         ' 
-        txtBoxSearch.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtBoxSearch.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtBoxSearch.Location = New Point(333, 166)
         txtBoxSearch.Name = "txtBoxSearch"
         txtBoxSearch.Size = New Size(460, 34)
@@ -83,7 +82,7 @@ Partial Class adminForm
         ' 
         Label7.AutoSize = True
         Label7.BorderStyle = BorderStyle.FixedSingle
-        Label7.Font = New Font("Arial Black", 40F, FontStyle.Bold)
+        Label7.Font = New Font("Arial Black", 40.0F, FontStyle.Bold)
         Label7.ForeColor = Color.White
         Label7.Location = New Point(596, 28)
         Label7.Name = "Label7"
@@ -106,7 +105,7 @@ Partial Class adminForm
         ' 
         btnShowComplaints.FlatAppearance.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowComplaints.FlatAppearance.BorderSize = 2
-        btnShowComplaints.Font = New Font("Consolas", 9F)
+        btnShowComplaints.Font = New Font("Consolas", 9.0F)
         btnShowComplaints.Location = New Point(1260, 528)
         btnShowComplaints.Name = "btnShowComplaints"
         btnShowComplaints.Size = New Size(171, 35)
@@ -118,7 +117,7 @@ Partial Class adminForm
         ' 
         btnShowFeedbacks.FlatAppearance.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowFeedbacks.FlatAppearance.BorderSize = 2
-        btnShowFeedbacks.Font = New Font("Consolas", 9F)
+        btnShowFeedbacks.Font = New Font("Consolas", 9.0F)
         btnShowFeedbacks.Location = New Point(1260, 569)
         btnShowFeedbacks.Name = "btnShowFeedbacks"
         btnShowFeedbacks.Size = New Size(171, 35)
@@ -130,7 +129,7 @@ Partial Class adminForm
         ' 
         btnShowSuggestions.FlatAppearance.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowSuggestions.FlatAppearance.BorderSize = 2
-        btnShowSuggestions.Font = New Font("Consolas", 9F)
+        btnShowSuggestions.Font = New Font("Consolas", 9.0F)
         btnShowSuggestions.Location = New Point(1260, 610)
         btnShowSuggestions.Name = "btnShowSuggestions"
         btnShowSuggestions.Size = New Size(171, 35)
@@ -142,7 +141,7 @@ Partial Class adminForm
         ' 
         btnShowInstructors.FlatAppearance.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowInstructors.FlatAppearance.BorderSize = 2
-        btnShowInstructors.Font = New Font("Consolas", 9F)
+        btnShowInstructors.Font = New Font("Consolas", 9.0F)
         btnShowInstructors.Location = New Point(1260, 311)
         btnShowInstructors.Name = "btnShowInstructors"
         btnShowInstructors.Size = New Size(171, 35)
@@ -154,7 +153,7 @@ Partial Class adminForm
         ' 
         btnShowCollege.FlatAppearance.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowCollege.FlatAppearance.BorderSize = 2
-        btnShowCollege.Font = New Font("Consolas", 9F)
+        btnShowCollege.Font = New Font("Consolas", 9.0F)
         btnShowCollege.Location = New Point(1260, 352)
         btnShowCollege.Name = "btnShowCollege"
         btnShowCollege.Size = New Size(171, 35)
@@ -166,7 +165,7 @@ Partial Class adminForm
         ' 
         btnShowOfficers.FlatAppearance.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowOfficers.FlatAppearance.BorderSize = 2
-        btnShowOfficers.Font = New Font("Consolas", 9F)
+        btnShowOfficers.Font = New Font("Consolas", 9.0F)
         btnShowOfficers.Location = New Point(1260, 393)
         btnShowOfficers.Name = "btnShowOfficers"
         btnShowOfficers.Size = New Size(171, 35)
@@ -178,7 +177,7 @@ Partial Class adminForm
         ' 
         btnShowOthers.FlatAppearance.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowOthers.FlatAppearance.BorderSize = 2
-        btnShowOthers.Font = New Font("Consolas", 9F)
+        btnShowOthers.Font = New Font("Consolas", 9.0F)
         btnShowOthers.Location = New Point(1260, 434)
         btnShowOthers.Name = "btnShowOthers"
         btnShowOthers.Size = New Size(171, 35)
@@ -189,7 +188,7 @@ Partial Class adminForm
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Font = New Font("Segoe UI Semibold", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = Color.FromArgb(CByte(84), CByte(223), CByte(192))
         Label2.Location = New Point(219, 159)
         Label2.Name = "Label2"
@@ -212,17 +211,17 @@ Partial Class adminForm
         btnShowFirstYear.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowFirstYear.BorderRadius = 14
         btnShowFirstYear.BorderThickness = 2
-        btnShowFirstYear.CustomizableEdges = CustomizableEdges9
+        btnShowFirstYear.CustomizableEdges = CustomizableEdges1
         btnShowFirstYear.DisabledState.BorderColor = Color.DarkGray
         btnShowFirstYear.DisabledState.CustomBorderColor = Color.DarkGray
         btnShowFirstYear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnShowFirstYear.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnShowFirstYear.FillColor = Color.FromArgb(CByte(178), CByte(137), CByte(255))
-        btnShowFirstYear.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnShowFirstYear.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnShowFirstYear.ForeColor = Color.FromArgb(CByte(255), CByte(246), CByte(254))
         btnShowFirstYear.Location = New Point(29, 219)
         btnShowFirstYear.Name = "btnShowFirstYear"
-        btnShowFirstYear.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        btnShowFirstYear.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         btnShowFirstYear.Size = New Size(171, 40)
         btnShowFirstYear.TabIndex = 28
         btnShowFirstYear.Text = "1st Year"
@@ -232,17 +231,17 @@ Partial Class adminForm
         btnShowSecondYear.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowSecondYear.BorderRadius = 14
         btnShowSecondYear.BorderThickness = 2
-        btnShowSecondYear.CustomizableEdges = CustomizableEdges11
+        btnShowSecondYear.CustomizableEdges = CustomizableEdges3
         btnShowSecondYear.DisabledState.BorderColor = Color.DarkGray
         btnShowSecondYear.DisabledState.CustomBorderColor = Color.DarkGray
         btnShowSecondYear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnShowSecondYear.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnShowSecondYear.FillColor = Color.FromArgb(CByte(178), CByte(137), CByte(255))
-        btnShowSecondYear.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnShowSecondYear.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnShowSecondYear.ForeColor = Color.FromArgb(CByte(255), CByte(246), CByte(254))
         btnShowSecondYear.Location = New Point(29, 265)
         btnShowSecondYear.Name = "btnShowSecondYear"
-        btnShowSecondYear.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        btnShowSecondYear.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btnShowSecondYear.Size = New Size(171, 40)
         btnShowSecondYear.TabIndex = 29
         btnShowSecondYear.Text = "2nd Year"
@@ -252,17 +251,17 @@ Partial Class adminForm
         btnShowThirdYear.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowThirdYear.BorderRadius = 14
         btnShowThirdYear.BorderThickness = 2
-        btnShowThirdYear.CustomizableEdges = CustomizableEdges13
+        btnShowThirdYear.CustomizableEdges = CustomizableEdges5
         btnShowThirdYear.DisabledState.BorderColor = Color.DarkGray
         btnShowThirdYear.DisabledState.CustomBorderColor = Color.DarkGray
         btnShowThirdYear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnShowThirdYear.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnShowThirdYear.FillColor = Color.FromArgb(CByte(178), CByte(137), CByte(255))
-        btnShowThirdYear.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnShowThirdYear.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnShowThirdYear.ForeColor = Color.FromArgb(CByte(255), CByte(246), CByte(254))
         btnShowThirdYear.Location = New Point(29, 311)
         btnShowThirdYear.Name = "btnShowThirdYear"
-        btnShowThirdYear.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        btnShowThirdYear.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         btnShowThirdYear.Size = New Size(171, 40)
         btnShowThirdYear.TabIndex = 30
         btnShowThirdYear.Text = "3rd Year"
@@ -272,17 +271,17 @@ Partial Class adminForm
         btnShowFourthYear.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowFourthYear.BorderRadius = 14
         btnShowFourthYear.BorderThickness = 2
-        btnShowFourthYear.CustomizableEdges = CustomizableEdges15
+        btnShowFourthYear.CustomizableEdges = CustomizableEdges7
         btnShowFourthYear.DisabledState.BorderColor = Color.DarkGray
         btnShowFourthYear.DisabledState.CustomBorderColor = Color.DarkGray
         btnShowFourthYear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnShowFourthYear.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnShowFourthYear.FillColor = Color.FromArgb(CByte(178), CByte(137), CByte(255))
-        btnShowFourthYear.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnShowFourthYear.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnShowFourthYear.ForeColor = Color.FromArgb(CByte(255), CByte(246), CByte(254))
         btnShowFourthYear.Location = New Point(29, 357)
         btnShowFourthYear.Name = "btnShowFourthYear"
-        btnShowFourthYear.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btnShowFourthYear.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         btnShowFourthYear.Size = New Size(171, 40)
         btnShowFourthYear.TabIndex = 31
         btnShowFourthYear.Text = "4th Year"
@@ -290,7 +289,7 @@ Partial Class adminForm
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Font = New Font("Segoe UI Semibold", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.ForeColor = Color.FromArgb(CByte(84), CByte(223), CByte(192))
         Label3.Location = New Point(900, 159)
         Label3.Name = "Label3"
@@ -347,7 +346,7 @@ Partial Class adminForm
         ' 
         ' adminForm
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(93), CByte(51), CByte(189))
         ClientSize = New Size(1517, 890)

@@ -114,18 +114,21 @@ Public Class adminForm
 
     End Function
 
-    Private Sub btnShowFirstYear_Click(sender As Object, e As EventArgs) Handles btnShowFirstYear.Click
+    Private Sub btnShowFirstYear_Click(sender As Object, e As EventArgs) Handles btnShowFirstYear.Click, btnShowSecondYear.Click, btnShowThirdYear.Click, btnShowFourthYear.Click
         DataGridView1.DataSource = Nothing
-        Dim query As String = "SELECT StudentID, YearLevel, Block, ComplaintReceiver, Instructor, ComplaintType, Details " &
+        Dim btn = CType(sender, Guna.UI2.WinForms.Guna2Button)
+        Dim query = "SELECT StudentID, YearLevel, Block, ComplaintReceiver, Instructor, ComplaintType, Details " &
                                "FROM masterTable " &
-                               "WHERE YearLevel = '1st Year';"
+                               "WHERE YearLevel = @btnShowYear;"
 
-        Using connection As SqlConnection = DatabaseModule.GetConnection()
+        Using connection = GetConnection()
+
             Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@btnShowYear", btn.Text)
                 Try
-                    DatabaseModule.OpenConnection(connection)
+                    OpenConnection(connection)
                     Using adapter As New SqlDataAdapter(command)
-                        Dim dataTable As New DataTable()
+                        Dim dataTable As New DataTable
                         adapter.Fill(dataTable)
                         If dataTable.Rows.Count = 0 Then
                             MessageBox.Show("No records found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -147,7 +150,7 @@ Public Class adminForm
                     MessageBox.Show("Error loading items: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 Finally
-                    DatabaseModule.CloseConnection(connection)
+                    CloseConnection(connection)
                 End Try
             End Using
         End Using
