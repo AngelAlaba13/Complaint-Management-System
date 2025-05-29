@@ -8,7 +8,7 @@ Public Class Form1
     'Private MyDataTbl As New DataTable
     'Public Shared Mycn As New SqlConnection
     'Private MyRowPosition As Integer = 0
-    'Private currentUserID As String
+    Private currentUserID As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -192,24 +192,48 @@ Public Class Form1
 
             'MyDataApt.Update(MyDataTbl)
 
-            txtStudentID.Clear()
-            txtYearLvl.SelectedIndex = -1
-            txtBlock.SelectedIndex = -1
-            txtTarget.SelectedIndex = -1
-            txtInstructor.SelectedIndex = -1
-            txtComplaint.SelectedIndex = -1
-            txtContent.Clear()
+
+            Dim insertQuery As String = "INSERT INTO masterTable(StudentID, YearLevel, Block, ComplaintReceiver, ComplaintType, Details) " &
+                                "VALUES (@StudentID, @YearLevel, @Block, @ComplaintReceiver, @ComplaintType, @Details)"
+            Try
+                Using connection As SqlConnection = DatabaseModule.GetConnection()
+                    Using command As New SqlCommand(insertQuery, connection)
+                        'command.Parameters.AddWithValue("@faculty_id", getItemID)
+                        command.Parameters.AddWithValue("@StudentID", txtStudentID.Text)
+                        command.Parameters.AddWithValue("@YearLevel", txtYearLvl.Text)
+                        command.Parameters.AddWithValue("@Block", txtBlock.Text)
+                        command.Parameters.AddWithValue("@ComplaintReceiver", txtTarget.Text)
+                        command.Parameters.AddWithValue("@ComplaintType", txtComplaint.Text)
+                        command.Parameters.AddWithValue("@Details", txtContent.Text)
+                        connection.Open()
+                        command.ExecuteNonQuery()
+                    End Using
+
+                End Using
+
+                txtStudentID.Clear()
+                txtYearLvl.SelectedIndex = -1
+                txtBlock.SelectedIndex = -1
+                txtTarget.SelectedIndex = -1
+                txtInstructor.SelectedIndex = -1
+                txtComplaint.SelectedIndex = -1
+                txtContent.Clear()
 
 
-            Dim result As DialogResult = MessageBox.Show("Your complaint has been recorded successfully. Do you want to view your response?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-            If result = DialogResult.Yes Then
-                'currentUserID = MyDataTbl.Rows(MyRowPosition)("StudentID").ToString()
+                Dim result As DialogResult = MessageBox.Show("Your complaint has been recorded successfully. Do you want to view your response?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                If result = DialogResult.Yes Then
+                    'currentUserID = MyDataTbl.Rows(MyRowPosition)("StudentID").ToString()
 
-                loginPanel.Visible = False
-                reviewPanel.Visible = False
-                userViewPanel.Visible = True
-                LoadComplains()
-            End If
+                    loginPanel.Visible = False
+                    reviewPanel.Visible = False
+                    userViewPanel.Visible = True
+                    LoadComplains()
+                End If
+            Catch ex As Exception
+                MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+
+
 
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -224,59 +248,61 @@ Public Class Form1
 
     Private Sub LoadComplains()
         complainsPanel.Controls.Clear()
+        Dim query As String = "SELECT StudentID, ComplaintReceiver, ComplaintType, Details FROM masterTable WHERE StudentID = @id"
+        Try
+            Using connection As SqlConnection = DatabaseModule.GetConnection()
+                Using command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@id", currentUserID)
+                    DatabaseModule.OpenConnection(connection) ' <-- Open the connection here!
+                    Using reader As SqlDataReader = command.ExecuteReader()
+                        While reader.Read()
+                            Dim itemsPanel As New Panel With {
+                            .Width = complainsPanel.Width - 20,
+                            .Height = 115,
+                            .BackColor = Color.White,
+                            .BorderStyle = BorderStyle.FixedSingle,
+                            .Margin = New Padding(5)
+                        }
 
-        'Dim query As String = "SELECT ID, ComplaintReceiver, ComplaintType, Details FROM masterTable WHERE StudentID = @id"
-        'Using cmd As New SqlCommand(query, Mycn)
-        '    cmd.Parameters.AddWithValue("@id", currentUserID)
+                            Dim lblComplaintReceiver As New Label With {
+                            .Text = reader("ComplaintReceiver").ToString(),
+                            .Font = New Font("Segoe UI", 15, FontStyle.Bold),
+                            .ForeColor = Color.Black,
+                            .Location = New Point(10, 5),
+                            .AutoSize = True
+                        }
 
-        'Using reader As SqlDataReader = cmd.ExecuteReader()
-        'While reader.Read()
-        '            Dim itemsPanel As New Panel With {
-        '                .Width = complainsPanel.Width - 20,
-        '                .Height = 115,
-        '                .BackColor = Color.White,
-        '            .BorderStyle = BorderStyle.FixedSingle,
-        '            .Margin = New Padding(5)
-        '            }
+                            Dim lblComplaintType As New Label With {
+                            .Text = reader("ComplaintType").ToString(),
+                            .Font = New Font("Segoe UI", 11),
+                            .ForeColor = Color.Black,
+                            .Location = New Point(12, 40),
+                            .AutoSize = True
+                        }
 
-        '            Dim lblComplaintReceiver As New Label With {
-        '                .Text = reader("ComplaintReceiver").ToString(),
-        '                .Font = New Font("Segoe UI", 15, FontStyle.Bold),
-        '                .ForeColor = Color.Black,
-        '                .Location = New Point(10, 5),
-        '                .AutoSize = True
-        '                }
+                            Dim lblDetails As New Label With {
+                            .Text = reader("Details").ToString(),
+                            .Font = New Font("Segoe UI", 10),
+                            .ForeColor = Color.Black,
+                            .Location = New Point(10, 75),
+                            .Size = New Size(itemsPanel.Width - 20, 40),
+                            .AutoEllipsis = True
+                        }
 
-        '            Dim lblComplaintType As New Label With {
-        '            .Text = reader("ComplaintType").ToString(),
-        '            .Font = New Font("Segoe UI", 11),
-        '            .ForeColor = Color.Black,
-        '            .Location = New Point(12, 40),
-        '            .AutoSize = True
-        '        }
+                            itemsPanel.Controls.Add(lblComplaintReceiver)
+                            itemsPanel.Controls.Add(lblComplaintType)
+                            itemsPanel.Controls.Add(lblDetails)
 
-
-        '            Dim lblDetails As New Label With {
-        '                .Text = reader("Details").ToString(),
-        '                .Font = New Font("Segoe UI", 10),
-        '                .ForeColor = Color.Black,
-        '                .Location = New Point(10, 75),
-        '                .Size = New Size(itemsPanel.Width - 20, 40),
-        '                .AutoEllipsis = True
-        '            }
-
-        '            itemsPanel.Controls.Add(lblComplaintReceiver)
-        '            itemsPanel.Controls.Add(lblComplaintType)
-        '            itemsPanel.Controls.Add(lblDetails)
-
-        '            complainsPanel.Controls.Add(itemsPanel)
-
-
-
-        '        End While
-        '    End Using
-        'End Using
+                            complainsPanel.Controls.Add(itemsPanel)
+                        End While
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error registration: " & ex.Message)
+        End Try
     End Sub
+
 
     Private Sub txtTarget_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtTarget.SelectedIndexChanged
         Console.WriteLine("Target: " & txtTarget.Text)
