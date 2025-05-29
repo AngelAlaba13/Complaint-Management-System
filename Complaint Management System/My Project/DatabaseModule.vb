@@ -2,9 +2,10 @@
 Imports Microsoft.Data.SqlClient
 
 Module DatabaseModule
-    Private connectionString As String = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
+    'ANGEL-IN DESGUISE
+    'Private connectionString As String = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
     'karl-connection
-    'Private connectionString As String = "Data Source=LAPTOP-O85KOUQB\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
+    Private connectionString As String = "Data Source=LAPTOP-O85KOUQB\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
 
     ' Get a new SqlConnection instance
     Public Function GetConnection() As SqlConnection
