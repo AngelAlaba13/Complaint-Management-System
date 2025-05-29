@@ -1,4 +1,5 @@
-﻿Imports Microsoft.Data.SqlClient
+﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
+Imports Microsoft.Data.SqlClient
 
 Public Class Form1
 
@@ -11,7 +12,11 @@ Public Class Form1
     Private currentUserID As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        'userViewPanel.AutoScroll = True
+        'complainsPanel.AutoScroll = True
+        'complainsPanel.HorizontalScroll.Enabled = False
+        'complainsPanel.HorizontalScroll.Visible = False
+        'complainsPanel.VerticalScroll.Visible = True
         ''Angel-connection
         'Mycn.ConnectionString = "Data Source=DESKTOP-439OE8U\SQLEXPRESS;Initial Catalog=complaintDB;Integrated Security=True;Trust Server Certificate=True"
         ''karl-connection
@@ -101,6 +106,7 @@ Public Class Form1
                         Dim role As String = roleObj.ToString().ToLower()
 
                         If role = "student" Then
+                            currentUserID = username
                             loginPanel.Visible = False
                             userViewPanel.Visible = False
                             userDashBoard.Visible = True
@@ -211,6 +217,8 @@ Public Class Form1
 
                 End Using
 
+                currentUserID = txtStudentID.Text
+
                 txtStudentID.Clear()
                 txtYearLvl.SelectedIndex = -1
                 txtBlock.SelectedIndex = -1
@@ -218,7 +226,6 @@ Public Class Form1
                 txtInstructor.SelectedIndex = -1
                 txtComplaint.SelectedIndex = -1
                 txtContent.Clear()
-
 
                 Dim result As DialogResult = MessageBox.Show("Your complaint has been recorded successfully. Do you want to view your response?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                 If result = DialogResult.Yes Then
@@ -248,21 +255,26 @@ Public Class Form1
 
     Private Sub LoadComplains()
         complainsPanel.Controls.Clear()
-        Dim query As String = "SELECT StudentID, ComplaintReceiver, ComplaintType, Details FROM masterTable WHERE StudentID = @id"
+        Dim panelWidth As Integer = complainsPanel.ClientSize.Width - 25
+
+
+
+        Dim query As String = "SELECT StudentID, ComplaintReceiver, ComplaintType, Details FROM masterTable WHERE StudentID = @StudentID"
         Try
             Using connection As SqlConnection = DatabaseModule.GetConnection()
                 Using command As New SqlCommand(query, connection)
-                    command.Parameters.AddWithValue("@id", currentUserID)
+                    command.Parameters.AddWithValue("@StudentID", currentUserID)
                     DatabaseModule.OpenConnection(connection) ' <-- Open the connection here!
                     Using reader As SqlDataReader = command.ExecuteReader()
+                        'Dim yOffset As Integer = 0
                         While reader.Read()
                             Dim itemsPanel As New Panel With {
-                            .Width = complainsPanel.Width - 20,
+                            .Width = panelWidth,
                             .Height = 115,
                             .BackColor = Color.White,
-                            .BorderStyle = BorderStyle.FixedSingle,
-                            .Margin = New Padding(5)
+                            .BorderStyle = BorderStyle.FixedSingle
                         }
+
 
                             Dim lblComplaintReceiver As New Label With {
                             .Text = reader("ComplaintReceiver").ToString(),
@@ -294,6 +306,7 @@ Public Class Form1
                             itemsPanel.Controls.Add(lblDetails)
 
                             complainsPanel.Controls.Add(itemsPanel)
+                            'yOffset += itemsPanel.Height + 10
                         End While
                     End Using
                 End Using
@@ -320,6 +333,7 @@ Public Class Form1
     'direct to view reviews
     Private Sub viewButtonPanel_Click(sender As Object, e As EventArgs) Handles viewButtonPanel.Click
         userViewPanel.Visible = True
+        LoadComplains()
         loginPanel.Visible = False
         userDashBoard.Visible = False
         reviewPanel.Visible = False
@@ -327,6 +341,7 @@ Public Class Form1
 
     Private Sub viewButtonPicture_Click(sender As Object, e As EventArgs) Handles viewButtonPicture.Click
         userViewPanel.Visible = True
+        LoadComplains()
         loginPanel.Visible = False
         userDashBoard.Visible = False
         reviewPanel.Visible = False
@@ -334,6 +349,7 @@ Public Class Form1
 
     Private Sub viewButtonLabel_Click(sender As Object, e As EventArgs) Handles viewButtonLabel.Click
         userViewPanel.Visible = True
+        LoadComplains()
         loginPanel.Visible = False
         userDashBoard.Visible = False
         reviewPanel.Visible = False
@@ -386,4 +402,11 @@ Public Class Form1
         'Hide()
     End Sub
 
+    Private Sub userViewPanel_Paint(sender As Object, e As PaintEventArgs) Handles userViewPanel.Paint
+
+    End Sub
+
+    Private Sub itemsPanel_Paint(sender As Object, e As PaintEventArgs) Handles itemsPanel.Paint
+
+    End Sub
 End Class
