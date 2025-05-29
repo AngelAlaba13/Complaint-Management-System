@@ -5,6 +5,15 @@ Imports Microsoft.Data.SqlClient
 
 Public Class adminForm
     Private Async Sub adminForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ComboBox1.Items.Add("A")
+        ComboBox1.Items.Add("B")
+        ComboBox1.Items.Add("C")
+        ComboBox1.Items.Add("D")
+        ComboBox1.Items.Add("E")
+        ComboBox1.Items.Add("F")
+        ComboBox1.Items.Add("G")
+        ComboBox1.Items.Add("H")
+        ComboBox1.Items.Add("I")
         Await LoadStudentRecordsAsync()
     End Sub
 
@@ -24,6 +33,7 @@ Public Class adminForm
                                "Instructor LIKE @searchText OR " &
                                "ComplaintType LIKE @searchText OR " &
                                "Details LIKE @searchText;"
+
 
         Using connection As SqlConnection = DatabaseModule.GetConnection()
             Using command As New SqlCommand(query, connection)
@@ -530,6 +540,42 @@ Public Class adminForm
                     DatabaseModule.CloseConnection(connection)
                 End Try
             End Using
+        End Using
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim query As String = "SELECT StudentID, YearLevel, Block, ComplaintReceiver, Instructor, ComplaintType, Details " &
+                               "FROM masterTable " &
+                               "WHERE Block = @block;"
+
+        Using connection As SqlConnection = DatabaseModule.GetConnection()
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@block", ComboBox1.SelectedItem.ToString())
+                Try
+                    DatabaseModule.OpenConnection(connection)
+                    Using adapter As New SqlDataAdapter(command)
+                        Dim dataTable As New DataTable()
+                        adapter.Fill(dataTable)
+                        If dataTable.Rows.Count = 0 Then
+                            MessageBox.Show("No records found for the selected block.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
+                        DataGridView1.DataSource = dataTable
+                        DataGridView1.Columns("StudentID").HeaderText = "Student ID"
+                        DataGridView1.Columns("YearLevel").HeaderText = "Year Level"
+                        DataGridView1.Columns("Block").HeaderText = "Block"
+                        DataGridView1.Columns("ComplaintReceiver").HeaderText = "Receiver"
+                        DataGridView1.Columns("Instructor").HeaderText = "Instructor"
+                        DataGridView1.Columns("ComplaintType").HeaderText = "Problem Type"
+                        DataGridView1.Columns("Details").HeaderText = "Details"
+                        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.AllCells
+                    End Using
+                Catch ex As Exception
+                    MessageBox.Show("Error loading items: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Finally
+                    DatabaseModule.CloseConnection(connection)
+                End Try
+            End Using
+
         End Using
     End Sub
 End Class
