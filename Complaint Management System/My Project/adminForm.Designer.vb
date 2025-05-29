@@ -22,14 +22,14 @@ Partial Class adminForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(adminForm))
         txtBoxSearch = New TextBox()
         DataGridView1 = New DataGridView()
@@ -208,7 +208,7 @@ Partial Class adminForm
         btnShowFirstYear.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowFirstYear.BorderRadius = 14
         btnShowFirstYear.BorderThickness = 2
-        btnShowFirstYear.CustomizableEdges = CustomizableEdges9
+        btnShowFirstYear.CustomizableEdges = CustomizableEdges1
         btnShowFirstYear.DisabledState.BorderColor = Color.DarkGray
         btnShowFirstYear.DisabledState.CustomBorderColor = Color.DarkGray
         btnShowFirstYear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -218,7 +218,7 @@ Partial Class adminForm
         btnShowFirstYear.ForeColor = Color.FromArgb(CByte(255), CByte(246), CByte(254))
         btnShowFirstYear.Location = New Point(29, 219)
         btnShowFirstYear.Name = "btnShowFirstYear"
-        btnShowFirstYear.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        btnShowFirstYear.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         btnShowFirstYear.Size = New Size(171, 40)
         btnShowFirstYear.TabIndex = 28
         btnShowFirstYear.Text = "1st Year"
@@ -228,7 +228,7 @@ Partial Class adminForm
         btnShowSecondYear.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowSecondYear.BorderRadius = 14
         btnShowSecondYear.BorderThickness = 2
-        btnShowSecondYear.CustomizableEdges = CustomizableEdges11
+        btnShowSecondYear.CustomizableEdges = CustomizableEdges3
         btnShowSecondYear.DisabledState.BorderColor = Color.DarkGray
         btnShowSecondYear.DisabledState.CustomBorderColor = Color.DarkGray
         btnShowSecondYear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -238,7 +238,7 @@ Partial Class adminForm
         btnShowSecondYear.ForeColor = Color.FromArgb(CByte(255), CByte(246), CByte(254))
         btnShowSecondYear.Location = New Point(29, 265)
         btnShowSecondYear.Name = "btnShowSecondYear"
-        btnShowSecondYear.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        btnShowSecondYear.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btnShowSecondYear.Size = New Size(171, 40)
         btnShowSecondYear.TabIndex = 29
         btnShowSecondYear.Text = "2nd Year"
@@ -248,7 +248,7 @@ Partial Class adminForm
         btnShowThirdYear.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowThirdYear.BorderRadius = 14
         btnShowThirdYear.BorderThickness = 2
-        btnShowThirdYear.CustomizableEdges = CustomizableEdges13
+        btnShowThirdYear.CustomizableEdges = CustomizableEdges5
         btnShowThirdYear.DisabledState.BorderColor = Color.DarkGray
         btnShowThirdYear.DisabledState.CustomBorderColor = Color.DarkGray
         btnShowThirdYear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -258,7 +258,7 @@ Partial Class adminForm
         btnShowThirdYear.ForeColor = Color.FromArgb(CByte(255), CByte(246), CByte(254))
         btnShowThirdYear.Location = New Point(29, 311)
         btnShowThirdYear.Name = "btnShowThirdYear"
-        btnShowThirdYear.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        btnShowThirdYear.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         btnShowThirdYear.Size = New Size(171, 40)
         btnShowThirdYear.TabIndex = 30
         btnShowThirdYear.Text = "3rd Year"
@@ -268,7 +268,7 @@ Partial Class adminForm
         btnShowFourthYear.BorderColor = Color.FromArgb(CByte(50), CByte(52), CByte(144))
         btnShowFourthYear.BorderRadius = 14
         btnShowFourthYear.BorderThickness = 2
-        btnShowFourthYear.CustomizableEdges = CustomizableEdges15
+        btnShowFourthYear.CustomizableEdges = CustomizableEdges7
         btnShowFourthYear.DisabledState.BorderColor = Color.DarkGray
         btnShowFourthYear.DisabledState.CustomBorderColor = Color.DarkGray
         btnShowFourthYear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -278,7 +278,7 @@ Partial Class adminForm
         btnShowFourthYear.ForeColor = Color.FromArgb(CByte(255), CByte(246), CByte(254))
         btnShowFourthYear.Location = New Point(29, 357)
         btnShowFourthYear.Name = "btnShowFourthYear"
-        btnShowFourthYear.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btnShowFourthYear.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         btnShowFourthYear.Size = New Size(171, 40)
         btnShowFourthYear.TabIndex = 31
         btnShowFourthYear.Text = "4th Year"
